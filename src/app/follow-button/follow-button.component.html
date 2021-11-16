@@ -1,0 +1,6 @@
+<button [ngClass]="{'followup' : isFollow == true,
+        'unfollow' : isFollow== false }" 
+        (click)="onClick()">
+        {{isFollow == true ? 'Unfollow' : (isFollow == false ? 'Follow' : '')}}
+    </button>
+
