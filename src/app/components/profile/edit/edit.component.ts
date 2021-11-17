@@ -11,7 +11,7 @@ import { ProfileService } from '../services/profile.service';
 export class EditComponent implements OnInit {
 
   userId!: number;
-  user!: User;
+  user!: Users;
 
   constructor(private route: ActivatedRoute, private router: Router, 
     private profileService: ProfileService) { }
