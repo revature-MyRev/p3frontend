@@ -1,0 +1,12 @@
+@import "src/colorVariables";
+@import "../../../bootstrap.css";
+.img-sm {
+  max-height: 50px;
+  max-width: 50px;
+  border: 1px solid $blue;
+}
+
+.card-width {
+  max-width: 50rem;
+  border: 2px solid $blue;
+}
