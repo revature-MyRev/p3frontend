@@ -1,0 +1,41 @@
+@import "src/colorvariables";
+
+* {
+  outline: 1px solid $blue;
+  box-shadow: 0px 0px 1px 1px rgba($color: $blue, $alpha: 0.4);
+}
+
+.feed-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-container,
+.footer-container {
+  padding: 1rem 0rem;
+}
+
+.header-container {
+  background-color: $dark-grey;
+}
+
+.post__feed-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.post__feed-following {
+  grid-column: span 1;
+}
+
+/* .post__feed-section {
+  padding: 2rem 0;
+} */
+
+.post__feed__content-header {
+  font-size: 1.25rem;
+}
+
+.footer-container {
+  background-color: $light-gray;
+}
