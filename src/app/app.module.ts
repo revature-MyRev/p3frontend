@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 // User created components
 import { AppComponent } from './app.component';
 import { PostfeedComponent } from './components/postfeed/postfeed.component';
@@ -18,16 +19,10 @@ import { CommentsComponent } from './components/comments/comments.component';
     CreatepostComponent,
     PostItemComponent,
     CommentsComponent,
-  ],
-
-  imports: [BrowserModule,
+    EditComponent,
     ProfileComponent,
-    EditComponent
-    ],
-  imports: [
-    BrowserModule,
-    HttpClientModule
   ],
+  imports: [BrowserModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
