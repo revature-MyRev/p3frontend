@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Post } from '../Post';
+import { environment } from 'src/environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
   }),
 };
-const baseApiUrl = 'http://localhost:8091/posts';
+const baseApiUrl = environment.API_ROOT_URL;
 
 @Injectable({
   providedIn: 'root',
@@ -31,8 +32,13 @@ export class PostService {
     return this.http.post<Post>(url, post, httpOptions);
   }
 
+  updatePost(post: Post): Observable<Post> {
+    const url = `${baseApiUrl}/posts/${post.postId}`;
+    return this.http.put<Post>(url, post, httpOptions);
+  }
+
   deletePost(post: Post): Observable<Post> {
-    const url = `${baseApiUrl}/${post.postId}`;
+    const url = `${baseApiUrl}/posts/${post.postId}`;
     return this.http.delete<Post>(url);
   }
 }
