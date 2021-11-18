@@ -7,6 +7,7 @@ import { PostfeedComponent } from './components/postfeed/postfeed.component';
 import { CreatepostComponent } from './components/createpost/createpost.component';
 import { PostItemComponent } from './components/post-item/post-item.component';
 import { CommentsComponent } from './components/comments/comments.component';
+import { FollowingComponent } from './components/following/following.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { CommentsComponent } from './components/comments/comments.component';
     CreatepostComponent,
     PostItemComponent,
     CommentsComponent,
+    FollowingComponent,
   ],
 
   imports: [BrowserModule],

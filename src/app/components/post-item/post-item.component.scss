@@ -1,12 +1,41 @@
 @import "src/colorVariables";
 @import "../../../bootstrap.css";
-.img-sm {
+
+.post__item__card-img {
   max-height: 50px;
   max-width: 50px;
   border: 1px solid $blue;
 }
 
-.card-width {
-  max-width: 50rem;
+.post__item__card {
+  margin: 2rem 0;
   border: 2px solid $blue;
+  box-shadow: $medium-box-shadow;
+}
+
+.post__item__card-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid $blue;
+}
+
+.post__item__card__content-container {
+  & > p {
+    font-size: 1rem;
+    margin: 0;
+    margin-left: 1rem;
+  }
+}
+
+i {
+  font-size: 1.5rem;
+  color: $orange;
+
+  filter: FlipH;
+}
+
+.fa-thumbs-down {
+  transform: scaleX(-1);
 }

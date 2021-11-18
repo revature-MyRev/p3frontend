@@ -1,10 +1,12 @@
 @import "src/colorvariables";
 
+/*=========== Outline for test purposes ===========*/
 /* * {
   outline: 1px solid $blue;
   box-shadow: 0px 0px 1px 1px rgba($color: $blue, $alpha: 0.4);
 }
  */
+
 .feed-wrapper {
   display: flex;
   flex-direction: column;
@@ -19,14 +21,73 @@
   background-color: $dark-grey;
 }
 
+.header,
+.footer {
+  padding: 0rem 3rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  & > h1 {
+    margin-left: auto;
+    font-family: futuraHeavy;
+    font-size: 2rem;
+    color: $white;
+  }
+
+  & > img {
+    max-height: 2rem;
+  }
+}
+
 .post__feed-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  padding: 1rem 2rem;
+  gap: 1rem;
+  grid-template-columns: min-content 1fr min-content;
+  padding: 0rem 0rem;
+}
+.post__feed-main,
+.post__feed-following {
+  padding: 2rem 0;
 }
 
 .post__feed-following {
   grid-column: span 1;
+  border-right: 5px solid $light-gray;
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  background-color: $light-gray;
+}
+
+.post__feed__following-header {
+  font-family: futuraHeavy;
+  font-size: 2rem;
+  color: $orange;
+  margin-bottom: 1rem;
+}
+
+.post__feed__following-user {
+  border: 1px solid $blue;
+  margin: 1rem 0;
+
+  & > p {
+    font-size: 1rem;
+  }
+}
+
+.post__feed__following__user-header {
+  & > h3 {
+    font-size: 1.25rem;
+  }
+}
+
+.post__feed-main {
+  grid-column: span 1;
+  padding: 2rem 3rem;
 }
 
 /* .post__feed-section {
@@ -38,5 +99,5 @@
 }
 
 .footer-container {
-  background-color: $light-gray;
+  background-color: $dark-grey;
 }
