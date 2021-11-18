@@ -10,7 +10,7 @@ const USER_KEY = 'auth-user';
 })
 export class ProfileService {
 
-  baseUrl = 'http://localhost:9080/'
+  baseUrl = 'http://localhost:9080/';
   
   constructor(private http: HttpClient) { }
   
@@ -44,6 +44,6 @@ export class ProfileService {
   }
 
   updateProfile(id: number, value: any): Observable<Object> {
-    return this.http.put(this.baseUrl+ "editProfile/" +id, value);
+    return this.http.put(this.baseUrl+ "editProfile/" + id, value);
   }
 }

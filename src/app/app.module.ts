@@ -6,23 +6,25 @@ import { FormsModule } from '@angular/forms';
 // User created components
 import { AppComponent } from './app.component';
 import { PostfeedComponent } from './components/postfeed/postfeed.component';
-import { EditComponent } from './components/profile/edit/edit.component';
+import { EditDetailsComponent } from './components/profile/edit-details/edit-details.component';
 import { ProfileComponent } from './components/profile/page/profile.component';
-import { CreatepostComponent } from './components/createpost/createpost.component';
-import { PostItemComponent } from './components/post-item/post-item.component';
-import { CommentsComponent } from './components/comments/comments.component';
+import { EditPhotoComponent } from './components/profile/edit-photo/edit-photo.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostfeedComponent,
-    CreatepostComponent,
-    PostItemComponent,
-    CommentsComponent,
-    EditComponent,
     ProfileComponent,
+    EditDetailsComponent,
+    EditPhotoComponent
+    ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    AppRoutingModule
   ],
-  imports: [BrowserModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
