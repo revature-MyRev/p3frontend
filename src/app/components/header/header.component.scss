@@ -1,0 +1,48 @@
+@import "src/colorVariables";
+
+.header-container {
+  background-color: $dark-grey;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 3rem;
+
+  & > h1 {
+    font-family: futuraHeavy;
+    font-size: 2rem;
+    color: $white;
+  }
+
+  & > img {
+    max-height: 2rem;
+  }
+}
+
+.header__search-container {
+  display: flex;
+  align-items: center;
+}
+
+.header__search__form {
+  & > input {
+    padding: 0.5rem;
+    height: 100%;
+  }
+
+  & > button {
+    color: $white;
+    background-color: $orange;
+    border: none;
+    outline: none;
+    margin-left: 1rem;
+    padding: 0.5rem;
+
+    &:hover {
+      background-color: $light-gray;
+    }
+  }
+}

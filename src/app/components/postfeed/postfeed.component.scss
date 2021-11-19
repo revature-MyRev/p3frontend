@@ -12,35 +12,8 @@
   flex-direction: column;
 }
 
-.header-container,
 .footer-container {
-  padding: 1rem 0rem;
-}
-
-.header-container {
-  background-color: $dark-grey;
-}
-
-.header,
-.footer {
-  padding: 0rem 3rem;
-}
-
-.header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-  & > h1 {
-    margin-left: auto;
-    font-family: futuraHeavy;
-    font-size: 2rem;
-    color: $white;
-  }
-
-  & > img {
-    max-height: 2rem;
-  }
+  padding: 1rem 3rem;
 }
 
 .post__feed-container {

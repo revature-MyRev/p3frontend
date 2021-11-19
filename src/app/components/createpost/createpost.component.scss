@@ -37,6 +37,11 @@
     }
   }
 
+  & > label {
+    color: $white;
+    margin-bottom: 1rem;
+  }
+
   & > button {
     font-size: 1.75rem;
     background-color: $dark-grey;

@@ -13,6 +13,7 @@ import { CreatepostComponent } from './components/createpost/createpost.componen
 import { PostItemComponent } from './components/post-item/post-item.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { FollowingComponent } from './components/following/following.component';
+import { HeaderComponent } from './components/header/header.component';
 
 const appRoutes: Routes = [
   { path: '', component: PostfeedComponent },
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
     FollowingComponent,
     EditComponent,
     ProfileComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
