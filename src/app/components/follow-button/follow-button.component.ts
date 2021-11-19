@@ -1,8 +1,8 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { HttpResponse } from '@angular/common/http';
+import { Component, Injectable, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
-
-import { IProfile } from 'src/app/profile'; //Mock interface acting Profile Model
-import { ProfileService } from 'src/app/profile.service'; //Mock Service pulling information from get request
+import { IFollower } from 'src/app/follower';
+import { FollowerService } from 'src/app/follower.service';
 
 
 //import { User } the currently logged in user object (currently hard coded as userId)
@@ -13,24 +13,19 @@ import { ProfileService } from 'src/app/profile.service'; //Mock Service pulling
   styleUrls: ['./follow-button.component.scss']
 })
 export class FollowButtonComponent implements OnInit {
-  isVisible: boolean = false; //Checks to see if active user's id matches profile id
+  @Input('profileId') profileId = 0;
+  @Input('activeUsersId') activeUsersId = 0;
+  isVisible: boolean = false //Checks to see if active user's id matches profile id
   isFollowing: boolean = false; //Toggles between '+' and 'Unfollow' depending on current state
-  public profile!: IProfile;
-  userId = 0; //Mocking current session user's id
-
+  follower: IFollower = {"id": 0, "followerId": this.activeUsersId, "followedId": this.profileId};
+  
   constructor(
-    public service: ProfileService //Injecting mock service 
-  ) {
-      this.profile; 
-   }
+    public service: FollowerService, //Injecting mock service 
+  ) { }
   
   ngOnInit() {
-    this.service.getProfile() //Calling http get method in ProfileService
-      .subscribe(data => {
-        this.profile = data; //Storing retrieved http response to Mock Profile Model
-        this.isVisible = this.getVisibility(this.profile.id); //Calling validation method below
-      });
-  }
+     this.checkFollowerStatus(this.activeUsersId, this.profileId); //PUT NOTE HERE
+   }
 
   /*
   * This method toggles whether or not the currently visible profile will be followed
@@ -40,12 +35,35 @@ export class FollowButtonComponent implements OnInit {
   * 1. Add the relevent profile identifier to the relevent database via a post request 
   */
   onClick() {
-    this.isFollowing = !this.isFollowing;
-    if(this.isFollowing) {
-      //http post request to appropriate endpoint with appropriate data
-    } else {
-      //http put request to update table to say following is not active
+    //this.profileId = 4; //Manual control of the profileId for troubleshooting
+    console.log("Entering onClick()")
+
+
+    //Setting the values for the follower object to pass to the Controller
+    this.follower.followerId = this.activeUsersId;
+    this.follower.followedId = this.profileId;
+
+    if(!this.isFollowing) {
+      console.log("sending to the addUserToFollowedUsers() follower service method")
+      this.service.addUserToFollowedUsers(this.follower)
+        .subscribe( data => {
+          this.checkFollowerStatus(this.follower.followerId, this.follower.followedId);
+        });
+
+    
+    } 
+    
+    else {
+      
+      console.log("sending to the deleteUserFromFollowedUsers() follower service method with id " + this.follower.id)
+      this.service.deleteUserFromFollowedUsers(this.follower.id)
+        .subscribe( data => {
+          Response
+        });
     }
+
+    this.isFollowing = !this.isFollowing;
+    
   }
 
   /*
@@ -53,13 +71,60 @@ export class FollowButtonComponent implements OnInit {
   * when the user is viewing their own profile
   * It takes a single parameter of the Profile id
   */
-  getVisibility(id: number) {
-    if( this.userId == id ) { //compare active session id to Profile id
+  getVisibility(profileId: number, activeUsersId: number) {
+    // profileId = 4; //Manual control of the profileId for troubleshooting
+    console.log("Entering getVisibility()");
+    console.log("id: " + this.follower.id);
+    console.log("profileId: " + profileId);
+    console.log("activeUserId: " + activeUsersId);
+    
+    
+    if( activeUsersId == profileId ) { //compare active session id to Profile id
+      console.log("Button should not be visible")
       return false; //set isVisible property to false (button not visible)
     }
     else {
+      console.log("Button should be visible")
       return true; //set is Visible property to true (button visible)
+      //Delete by id
     }
   }
+
+
+  /*
+  * Code needs to be refactored
+  */
+  checkFollowerStatus(activeUserId: number, profileId: number) : boolean {
+    // profileId = 4; //Manual control of the profileId for troubleshooting
+    //console.log("entering checkFollowerStatus() with activeUserId: " + activeUserId + " profileId: " + profileId);
+    
+    this.service
+        .getFollowedById(profileId) //Get all users the acitve user is following
+        .subscribe(data => { 
+          data.forEach(followedUser => {
+            //console.log(followedUser); //Used for troubleshooting: displays Follower object
+            if(followedUser) {
+              console.log("The active user is following the user's profile being viewed. Async complete.");
+              this.isFollowing = true; //Setting isFollowing to true
+              this.follower.id = followedUser.id; //Seting the Follow Object instance id
+              this.isVisible = this.getVisibility(this.profileId, this.activeUsersId);
+              return true;
+            } 
+            
+            else {
+              console.log("entering else statement within checkFollowerStatus()")
+              this.isFollowing = false;
+              this.isVisible = this.getVisibility(this.profileId, this.activeUsersId);
+              return false;
+            }
+
+          });
+        });
+        console.log("getFollowedById() completed, waiting for database response");
+        this.isFollowing = false; //Holding isFollowing to false until async occurs
+        this.isVisible = this.getVisibility(this.profileId, this.activeUsersId); //Setting button visbility
+        return false;
+  }
+  
 
 }

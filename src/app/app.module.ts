@@ -6,9 +6,7 @@ import { FollowButtonComponent } from './components/follow-button/follow-button.
 import { PostfeedComponent } from './components/postfeed/postfeed.component';
 
 import { HttpClientModule } from '@angular/common/http'
-
-import { ProfileService } from './profile.service'; //Mock Service representing get request for a profile
-import { IProfile } from './profile'; //Mock interface representing Profile Model
+import { FollowerService } from './follower.service';
 
 
 @NgModule({
@@ -18,7 +16,7 @@ import { IProfile } from './profile'; //Mock interface representing Profile Mode
     HttpClientModule
   ],
   providers: [
-    ProfileService //Used for mocking an http get request for user profile data
+    FollowerService //Used for mocking an http get request for user profile data
   ],
   bootstrap: [AppComponent],
 })
