@@ -4,8 +4,17 @@
   </div>
   <div class="create__post__body-container">
     <div class="create__post__text-container">
-      <form class="create__post-form" action="" method="">
-        <textarea placeholder="What's going on today..."></textarea>
+      <form class="create__post-form" (ngSubmit)="onSubmit()">
+        <textarea
+          name="content"
+          [(ngModel)]="content"
+          placeholder="What would you like to share today?"
+          id="content"
+        ></textarea>
+
+        <label for="imageUrl">Image URL</label>
+        <input type="text" name="imageUrl" [(ngModel)]="image" class="mb-2" />
+
         <button type="submit">Post</button>
       </form>
     </div>

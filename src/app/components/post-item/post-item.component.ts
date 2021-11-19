@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Post } from 'src/app/Post';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-post-item',
@@ -6,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-item.component.scss'],
 })
 export class PostItemComponent implements OnInit {
-  post: string = 'This is a post';
+  @Input() post: Post;
 
-  constructor() {}
+  constructor(private pService: PostService) {}
 
   ngOnInit(): void {}
 }
