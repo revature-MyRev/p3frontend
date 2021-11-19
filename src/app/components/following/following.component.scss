@@ -1,37 +1,45 @@
 @import "src/colorVariables";
 
-.post__feed-following {
-  padding: 2rem 0;
-  //   height: 100%;
-}
-
-.post__feed-following {
-  grid-column: span 1;
-  border-right: 5px solid $light-gray;
-  padding: 2rem 3rem;
-  display: flex;
-  flex-direction: column;
-  background-color: $light-gray;
-}
-
 .post__feed__following-header {
   font-family: futuraHeavy;
   font-size: 2rem;
   color: $orange;
   margin-bottom: 1rem;
+  padding: 0rem 5rem;
 }
 
 .post__feed__following-user {
   border: 1px solid $blue;
   margin: 1rem 0;
-
+  background-color: $white;
   & > p {
     font-size: 1rem;
   }
 }
 
 .post__feed__following__user-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.5rem;
+  border-bottom: 1px solid $blue;
+
   & > h3 {
     font-size: 1.25rem;
+    margin-left: 1rem;
+  }
+
+  & > img {
+    max-height: 25px;
+    max-width: 25px;
+  }
+}
+
+.post__feed__following__user-bio {
+  padding: 1rem;
+
+  & > p {
+    line-height: 1.25rem;
+    text-align: center;
   }
 }

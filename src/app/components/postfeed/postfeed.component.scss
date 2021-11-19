@@ -63,28 +63,6 @@
   background-color: $light-gray;
 }
 
-.post__feed__following-header {
-  font-family: futuraHeavy;
-  font-size: 2rem;
-  color: $orange;
-  margin-bottom: 1rem;
-}
-
-.post__feed__following-user {
-  border: 1px solid $blue;
-  margin: 1rem 0;
-
-  & > p {
-    font-size: 1rem;
-  }
-}
-
-.post__feed__following__user-header {
-  & > h3 {
-    font-size: 1.25rem;
-  }
-}
-
 .post__feed-main {
   grid-column: span 1;
   padding: 2rem 3rem;

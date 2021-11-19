@@ -29,11 +29,10 @@
   }
 }
 
-i {
+.fa-thumbs-up,
+.fa-thumbs-down {
   font-size: 1.5rem;
   color: $orange;
-
-  filter: FlipH;
 }
 
 .fa-thumbs-down {
