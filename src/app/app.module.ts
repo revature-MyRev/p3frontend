@@ -18,6 +18,7 @@ const appRoutes: Routes = [
   { path: '', component: PostfeedComponent },
   { path: 'feed', component: PostfeedComponent },
   { path: 'profile', component: ProfileComponent },
+
   // { path: 'profile/edit', component: EditComponent },
 ];
 

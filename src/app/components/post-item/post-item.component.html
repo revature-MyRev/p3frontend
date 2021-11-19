@@ -2,12 +2,13 @@
   <div class="post__item__card">
     <div class="post__item__card-header">
       <img
-        class="post__item__card-img"
+        class="post__user__card-img"
         src="assets/Img/Users/user-solid-blue.png"
         alt=""
       />
       <div class="post__item__card__content-container">
-        <p>Hello Post</p>
+        <p>{{ post?.postContent }}</p>
+        <img src="{{ post?.imageUrl }}" class="post_item_card-img shadow" />
       </div>
     </div>
     <div class="d-flex ms-auto">
