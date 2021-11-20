@@ -16,6 +16,15 @@
       <button class="btn btn-sm"><i class="fas fa-thumbs-down"></i></button>
     </div>
     <hr />
-    <app-comments></app-comments>
+    <app-create-comment
+      (onAddComment)="addComment($event)"
+    ></app-create-comment>
+    <div *ngFor="let comment of comments">
+      <app-comments
+        [comment]="comment"
+        [post]="post"
+        *ngIf="comment.threadId === post.threadId"
+      ></app-comments>
+    </div>
   </div>
 </div>
