@@ -24,5 +24,17 @@
     </div>
 
     <app-comments></app-comments>
+
+    <hr />
+    <app-create-comment
+      (onAddComment)="addComment($event)"
+    ></app-create-comment>
+    <div *ngFor="let comment of comments">
+      <app-comments
+        [comment]="comment"
+        [post]="post"
+        *ngIf="comment.threadId === post.threadId"
+      ></app-comments>
+    </div>
   </div>
 </div>

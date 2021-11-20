@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Post } from 'src/app/Post';
 
 declare function alert(): any;
 
@@ -8,7 +9,8 @@ declare function alert(): any;
   styleUrls: ['./comments.component.scss'],
 })
 export class CommentsComponent implements OnInit {
-  comment: string = 'This is a comment';
+  @Input() comment: Post;
+  @Input() post: Post;
 
   constructor() {}
 

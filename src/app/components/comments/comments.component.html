@@ -7,7 +7,8 @@
         alt=""
       />
       <div class="container">
-        <p>{{ comment }}</p>
+        <p>{{ comment?.postContent }}</p>
+        <img src="{{ comment?.imageUrl }}" class="post_item_card-img shadow" />
       </div>
     </div>
     <hr />

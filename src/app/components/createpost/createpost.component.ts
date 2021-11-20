@@ -25,9 +25,10 @@ export class CreatepostComponent implements OnInit {
     const newPost = {
       postContent: this.content,
       postDate: new Date(),
-      threadId: 1,
+      threadId: 2,
       userId: 1,
       imageUrl: this.image,
+      type: 'post',
     };
 
     this.onAddPost.emit(newPost);
