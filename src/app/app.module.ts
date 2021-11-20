@@ -23,20 +23,20 @@ import { RegisterComponent } from './register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
-
+    LoginComponent,
     PostfeedComponent,
     CreatepostComponent,
     PostItemComponent,
     CommentsComponent,
     EditComponent,
     ProfileComponent,
+    RegisterComponent,
   ],
   imports: [BrowserModule,
       HttpClientModule,
       FormsModule,
       AppRoutingModule,
-      LoginComponent,
-      RegisterComponent,
+      
   ],
  
 
