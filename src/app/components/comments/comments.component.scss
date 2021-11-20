@@ -7,16 +7,6 @@
 }
 
 .card-width {
-  max-width: 50rem;
+  max-width: 100%;
   border: 2px solid $blue;
-}
-
-.fa-thumbs-up,
-.fa-thumbs-down {
-  font-size: 1.5rem;
-  color: $orange;
-}
-
-.fa-thumbs-down {
-  transform: scaleX(-1);
 }

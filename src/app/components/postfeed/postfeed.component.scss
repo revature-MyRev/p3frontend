@@ -1,5 +1,5 @@
 @import "src/colorvariables";
-
+@import "src/mediaQueries";
 /*=========== Outline for test purposes ===========*/
 /* * {
   outline: 1px solid $blue;
@@ -19,8 +19,13 @@
 .post__feed-container {
   display: grid;
   gap: 1rem;
-  grid-template-columns: min-content 1fr min-content;
+  grid-template-columns: min-content 1fr;
   padding: 0rem 0rem;
+
+  @media (max-width: $breakpoint-tablet) {
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
 }
 .post__feed-main,
 .post__feed-following {
@@ -34,11 +39,16 @@
   display: flex;
   flex-direction: column;
   background-color: $light-gray;
+
+  @media (max-width: $breakpoint-tablet) {
+    display: none;
+  }
 }
 
 .post__feed-main {
   grid-column: span 1;
   padding: 2rem 3rem;
+  max-width: 100%;
 }
 
 /* .post__feed-section {

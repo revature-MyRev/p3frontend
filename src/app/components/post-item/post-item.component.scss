@@ -37,12 +37,18 @@
   }
 }
 
-.fa-thumbs-up,
-.fa-thumbs-down {
-  font-size: 1.5rem;
-  color: $orange;
+.post__item__card__reaction-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid $blue;
+  // margin-bottom: 1rem;
+  & > p {
+    margin-bottom: 0;
+  }
 }
 
-.fa-thumbs-down {
-  transform: scaleX(-1);
+.post__item__card__reaction__comments {
+  margin-left: auto;
 }

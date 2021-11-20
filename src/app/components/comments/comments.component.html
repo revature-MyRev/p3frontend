@@ -1,4 +1,4 @@
-<div class="container mb-2">
+<div class="comment-container">
   <div class="card shadow card-width">
     <div class="d-flex align-items-center">
       <img
@@ -12,8 +12,12 @@
     </div>
     <hr />
     <div class="d-flex ms-auto">
-      <button class="btn btn-sm"><i class="fas fa-thumbs-up"></i></button>
-      <button class="btn btn-sm"><i class="fas fa-thumbs-down"></i></button>
+      <button class="reaction-btn thumbs__up" ng-click="alert()">
+        <i class="fas fa-thumbs-up"></i>
+      </button>
+      <button class="reaction-btn thumbs__down">
+        <i class="fas fa-thumbs-down"></i>
+      </button>
     </div>
   </div>
 </div>

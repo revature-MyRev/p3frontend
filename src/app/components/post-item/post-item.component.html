@@ -11,11 +11,18 @@
         <img src="{{ post?.imageUrl }}" class="post_item_card-img shadow" />
       </div>
     </div>
-    <div class="d-flex ms-auto">
-      <button class="btn btn-sm"><i class="fas fa-thumbs-up"></i></button>
-      <button class="btn btn-sm"><i class="fas fa-thumbs-down"></i></button>
+    <div class="post__item__card__reaction-container">
+      <button class="post__item__card__reaction-btn reaction-btn thumbs__up">
+        <i class="fas fa-thumbs-up"></i>
+      </button>
+      <p class="post__item__card__reaction__likes">0</p>
+      <button class="post__item__card__reaction-btn reaction-btn thumbs__down">
+        <i class="fas fa-thumbs-down"></i>
+      </button>
+      <p class="post__item__card__reaction__dislikes">0</p>
+      <p class="post__item__card__reaction__comments">0 Comments</p>
     </div>
-    <hr />
+
     <app-comments></app-comments>
   </div>
 </div>

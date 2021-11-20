@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+declare function alert(): any;
+
 @Component({
   selector: 'app-comments',
   templateUrl: './comments.component.html',
@@ -11,4 +13,8 @@ export class CommentsComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  onclick() {
+    alert();
+  }
 }
