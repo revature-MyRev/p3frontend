@@ -1,20 +1,37 @@
 @import "src/colorVariables";
+@import "src/bootstrap";
 
 .container {
     display: flex;
     flex-direction: column;
-   
+    width: 50%;
     max-height: auto;
     text-align: center;
+    background-color: #F26925;
 }
+label {
+    color: $dark-grey;
+    margin-bottom: 1rem;
+    text-align: left;
+    
+  }
 
 .form-group {
     margin-top: 20px;
 }
 
-button {
+ button {
     font-size: 1rem;
-    background-color: $dark-grey;
-    color: $white;
+    background-color: #F26925;
+    
     padding:0 1rem ;
+  }
+
+  img {
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  padding-top: 25px;
+  padding-bottom: 25px;
   }

@@ -15,6 +15,7 @@ import { PostItemComponent } from './components/post-item/post-item.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { HomeComponent } from './home/home.component';
 
 
 // import { authInterceptorProviders } from './_helpers/auth.interceptor';
@@ -31,6 +32,7 @@ import { RegisterComponent } from './register/register.component';
     EditComponent,
     ProfileComponent,
     RegisterComponent,
+    HomeComponent,
   ],
   imports: [BrowserModule,
       HttpClientModule,

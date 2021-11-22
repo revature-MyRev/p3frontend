@@ -1,12 +1,15 @@
 @import "src/colorVariables";
+@import "src/bootstrap";
+
 
 
 .container {
     display: flex;
     flex-direction: column;
-   
+    width: 50%;
     max-height: auto;
     text-align: center;
+    padding-top: 40px;
 }
 
 .form-group {
@@ -25,5 +28,17 @@
     color: $white;
     padding:0 1rem ;
   }
+  img {
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  }
+
+.login {
+ padding: 0, 20px;
+}
 
     

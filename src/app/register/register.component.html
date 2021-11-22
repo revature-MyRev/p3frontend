@@ -92,14 +92,14 @@
             #password="ngModel"
           />
           <div class="alert-danger" *ngIf="password.errors && f.submitted">
-            <div >Password is required</div>
-            <div >
+            <div>Password is required</div>
+            <div>
               Password must be at least 6 characters
             </div>
           </div>
         </div>
         <div class="form-group">
-          <button class="btn btn-primary btn-block">Rev Up!</button>
+          <button id="btn" class="btn btn-primary btn-block">Rev Up!</button>
         </div>
   
         <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
