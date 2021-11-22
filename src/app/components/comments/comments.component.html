@@ -1,24 +1,22 @@
-<div class="comment-container">
-  <div class="card shadow card-width">
-    <div class="d-flex align-items-center">
-      <img
-        class="img-sm m-2 rounded shadow"
-        src="https://buildyourspechere.com/wp-content/uploads/2020/10/placeholder-image-person-jpg.jpg"
-        alt=""
-      />
-      <div class="container">
-        <p>{{ comment?.postContent }}</p>
-        <img src="{{ comment?.imageUrl }}" class="post_item_card-img shadow" />
+<div class="comments-container">
+  <div class="comment__card">
+    <img
+      class="comment__user-img"
+      src="assets/Img/Users/user-solid-blue.png"
+      alt=""
+    />
+    <div class="comment-container">
+      <p>{{ comment?.postContent }}</p>
+      <img src="{{ comment?.imageUrl }}" class="post__item__card-img" />
+
+      <div class="comment__reactions-container">
+        <button class="reaction-btn thumbs__up" ng-click="alert()">
+          <i class="fas fa-thumbs-up"></i> 0
+        </button>
+        <button class="reaction-btn thumbs__down">
+          <i class="fas fa-thumbs-down"></i> 0
+        </button>
       </div>
-    </div>
-    <hr />
-    <div class="d-flex ms-auto">
-      <button class="reaction-btn thumbs__up" ng-click="alert()">
-        <i class="fas fa-thumbs-up"></i>
-      </button>
-      <button class="reaction-btn thumbs__down">
-        <i class="fas fa-thumbs-down"></i>
-      </button>
     </div>
   </div>
 </div>

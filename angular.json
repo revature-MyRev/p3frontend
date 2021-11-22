@@ -28,7 +28,10 @@
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.scss"],
-            "scripts": ["src/assets/JS/browserwidth.js"]
+            "scripts": [
+              "src/assets/JS/reactionClick.js",
+              "src/assets/JS/hideimg.js"
+            ]
           },
           "configurations": {
             "production": {

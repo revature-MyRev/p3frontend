@@ -6,11 +6,14 @@
         src="assets/Img/Users/user-solid-blue.png"
         alt=""
       />
-      <div class="post__item__card__content-container">
-        <p>{{ post?.postContent }}</p>
-        <img src="{{ post?.imageUrl }}" class="post_item_card-img shadow" />
-      </div>
+      <h3 class="post__user__name">User</h3>
+      <p>{{ post?.postDate }}</p>
     </div>
+    <div class="post__item__card__content-container">
+      <p>{{ post?.postContent }}</p>
+      <img src="{{ post?.imageUrl }}" class="post__item__card-img shadow" />
+    </div>
+
     <div class="post__item__card__reaction-container">
       <button class="post__item__card__reaction-btn reaction-btn thumbs__up">
         <i class="fas fa-thumbs-up"></i>
@@ -23,9 +26,6 @@
       <p class="post__item__card__reaction__comments">0 Comments</p>
     </div>
 
-    <app-comments></app-comments>
-
-    <hr />
     <app-create-comment
       (onAddComment)="addComment($event)"
     ></app-create-comment>

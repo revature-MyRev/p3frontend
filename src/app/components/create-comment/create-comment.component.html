@@ -1,19 +1,22 @@
-<div class="container">
-  <img class="img-sm" src="assets/Img/Users/user-solid-blue.png" alt="" />
-  <span>
-    <input
-      type="text"
-      placeholder="Write a comment..."
-      [(ngModel)]="content"
-      class="comment-input"
-      (keyup.enter)="onSubmit()"
-    />
-    <input
-      type="text"
-      placeholder="Post a pic..."
-      [(ngModel)]="image"
-      class="comment-input"
-      (keyup.enter)="onSubmit()"
-    />
-  </span>
+<div class="create__comment-container">
+  <img
+    class="create__comment-user-img"
+    src="assets/Img/Users/user-solid-blue.png"
+    alt=""
+  />
+
+  <input
+    class="create__comment-input"
+    type="text"
+    placeholder="Write a comment..."
+    [(ngModel)]="content"
+    (keyup.enter)="onSubmit()"
+  />
+  <input
+    class="create__comment-input"
+    type="text"
+    placeholder="Post a pic..."
+    [(ngModel)]="image"
+    (keyup.enter)="onSubmit()"
+  />
 </div>

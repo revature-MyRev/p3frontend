@@ -37,7 +37,7 @@
 }
 
 .reaction-click {
-  animation: reactionAnimation 0.5s ease-out;
+  animation: reactionAnimation 0.3s ease-out;
 }
 
 .reaction-btn > i {
@@ -47,4 +47,8 @@
 
 .fa-thumbs-down {
   transform: scaleX(-1);
+}
+
+.hide {
+  display: none;
 }

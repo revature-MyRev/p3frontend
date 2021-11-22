@@ -2,6 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Post } from 'src/app/Post';
 import { PostService } from 'src/app/services/post.service';
 
+declare const reactionClick: any;
+declare const hideImages: any;
+
 @Component({
   selector: 'app-post-item',
   templateUrl: './post-item.component.html',
@@ -17,7 +20,10 @@ export class PostItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.getData();
+    reactionClick();
+    hideImages();
   }
+
   private getData() {
     this.pService.getPosts().subscribe((posts) => {
       this.posts = posts;
@@ -53,4 +59,8 @@ export class PostItemComponent implements OnInit {
     });
     return this.comments;
   }
+
+  // onClick() {
+  //   console.log(this);
+  // }
 }

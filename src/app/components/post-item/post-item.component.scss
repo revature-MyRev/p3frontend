@@ -1,13 +1,18 @@
 @import "src/colorVariables";
 @import "../../../bootstrap.css";
 
+.post__item__card {
+  margin: 3rem 0;
+  max-width: 100%;
+}
+
 .post__user__card-img {
   max-height: 50px;
   max-width: 50px;
   border: 1px solid $blue;
 }
 
-.post_item_card-img {
+.post__item__card-img {
   max-height: 400px;
   max-width: 400px;
   border: 4px solid $blue;
@@ -27,9 +32,16 @@
   align-items: center;
   padding: 1rem;
   border-bottom: 1px solid $blue;
+
+  & > h3,
+  & > p {
+    margin-bottom: 0;
+    margin-left: 1rem;
+  }
 }
 
 .post__item__card__content-container {
+  padding: 1rem;
   & > p {
     font-size: 1rem;
     margin: 0;
