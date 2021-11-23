@@ -12,49 +12,40 @@ import { Feed } from 'src/app/Feed';
 export class CreatepostComponent implements OnInit {
   content: string;
   image: string;
-  tId: number;
+  tId: number = 0;
   feed: Feed;
 
   constructor(private pService: PostService) {}
 
   @Output() onAddPost: EventEmitter<Post> = new EventEmitter();
 
-  ngOnInit(): void {
-    let newfeed = {
-      feedId: 0,
-    };
-    this.createThread(newfeed);
-  }
+  ngOnInit(): void {}
 
-  onSubmit() {
+  createPost() {
     if (!this.content && !this.image) {
       alert('Please share some content or an image!');
     }
+    if (this.tId == 0) {
+      let newfeed = {
+        feedId: 0,
+      };
 
-    if (!this.tId) {
-      this.ngOnInit();
+      this.pService.createThread(newfeed).subscribe((t) => {
+        this.tId = +t;
+        const newPost = {
+          postContent: this.content,
+          postDate: new Date(),
+          userId: 1,
+          feedId: this.tId,
+          imageUrl: this.image,
+          type: 'post',
+        };
+
+        this.onAddPost.emit(newPost);
+        this.content = '';
+        this.image = '';
+        this.tId = 0;
+      });
     }
-
-    const newPost = {
-      postContent: this.content,
-      postDate: new Date(),
-      userId: 1,
-      feedId: this.tId,
-      imageUrl: this.image,
-      type: 'post',
-    };
-
-    if (this.tId) {
-      this.onAddPost.emit(newPost);
-      this.content = '';
-      this.image = '';
-      this.tId = null;
-    }
-  }
-
-  createThread(feed: Feed) {
-    this.pService.createThread(feed).subscribe((t) => {
-      this.tId = +t;
-    });
   }
 }
