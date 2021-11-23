@@ -1,5 +1,6 @@
 @import "src/colorVariables";
 @import "../../../bootstrap.css";
+@import "src/mediaQueries";
 
 .create__comment-container {
   display: flex;
@@ -7,6 +8,14 @@
   align-items: center;
   padding: 1rem;
   border-bottom: 1px solid $blue;
+
+  @media (max-width: $breakpoint-mobile) {
+    display: grid;
+    grid-template-areas:
+      "pfp input1"
+      "pfp input2";
+    row-gap: 1rem;
+  }
 }
 
 @keyframes focusAnimation {
@@ -21,8 +30,11 @@
 
 .create__comment-user-img {
   height: 2rem;
-  border: 2px solid $blue;
-  border-radius: 50%;
+
+  @media (max-width: $breakpoint-mobile) {
+    grid-area: pfp;
+    height: 4rem;
+  }
 }
 
 .create__comment-input {
@@ -35,5 +47,17 @@
   &:focus {
     animation: focusAnimation 0.1s ease-out;
     animation-fill-mode: forwards;
+  }
+
+  &:first-child {
+    @media (max-width: $breakpoint-mobile) {
+      grid-area: input1;
+    }
+  }
+
+  &:last-child {
+    @media (max-width: $breakpoint-mobile) {
+      grid-area: input2;
+    }
   }
 }

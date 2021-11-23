@@ -27,7 +27,7 @@
     justify-content: center;
   }
 }
-.post__feed-main,
+
 .post__feed-following {
   padding: 2rem 0;
 }
@@ -49,6 +49,10 @@
   grid-column: span 1;
   padding: 2rem 3rem;
   max-width: 100%;
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: 2rem;
+  }
 }
 
 /* .post__feed-section {

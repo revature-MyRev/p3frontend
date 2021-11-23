@@ -1,9 +1,5 @@
 @import "src/colorVariables";
-
-/* * {
-  outline: 1px rgba($color: $blue, $alpha: 1);
-  box-shadow: 0px 0px 2px 2px rgba($color: $blue, $alpha: 1);
-} */
+@import "src/mediaQueries";
 
 .create__post-container,
 .create__post-form {
@@ -21,6 +17,10 @@
   font-size: 2rem;
   color: $white;
   font-family: futuraHeavy;
+
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 1.5rem;
+  }
 }
 
 .create__post-form {
@@ -52,6 +52,10 @@
 
     &:hover {
       background-color: $light-gray;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+      font-size: 1.25rem;
     }
   }
 }

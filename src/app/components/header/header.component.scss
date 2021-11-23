@@ -1,4 +1,5 @@
 @import "src/colorVariables";
+@import "src/mediaQueries";
 
 .header-container {
   background-color: $dark-grey;
@@ -11,14 +12,26 @@
   justify-content: space-between;
   padding: 1rem 3rem;
 
+  @media (max-width: $breakpoint-mobile) {
+    padding: 1rem;
+  }
+
   & > h1 {
     font-family: futuraHeavy;
     font-size: 2rem;
     color: $white;
+
+    @media (max-width: $breakpoint-mobile) {
+      font-size: 1.5rem;
+    }
   }
 
   & > img {
     max-height: 2rem;
+
+    @media (max-width: $breakpoint-mobile) {
+      max-height: 1rem;
+    }
   }
 }
 

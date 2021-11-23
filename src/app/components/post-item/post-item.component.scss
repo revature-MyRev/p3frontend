@@ -1,5 +1,6 @@
 @import "src/colorVariables";
 @import "../../../bootstrap.css";
+@import "src/mediaQueries";
 
 .post__item__card {
   margin: 3rem 0;
@@ -7,9 +8,7 @@
 }
 
 .post__user__card-img {
-  max-height: 50px;
-  max-width: 50px;
-  border: 1px solid $blue;
+  height: 3rem;
 }
 
 .post__item__card-img {
@@ -17,7 +16,10 @@
   max-width: 400px;
   border: 4px solid $blue;
   border-radius: 20px;
-  margin: 10px;
+
+  @media (max-width: $breakpoint-mobile) {
+    max-width: 90%;
+  }
 }
 
 .post__item__card {
@@ -46,6 +48,18 @@
     font-size: 1rem;
     margin: 0;
     margin-left: 1rem;
+
+    @media (max-width: $breakpoint-mobile) {
+      text-align: center;
+      margin: 0;
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
