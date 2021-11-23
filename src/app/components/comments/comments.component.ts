@@ -3,7 +3,6 @@ import { Post } from 'src/app/Post';
 
 declare function alert(): any;
 declare const reactionClick: any;
-declare const hideImages: any;
 
 @Component({
   selector: 'app-comments',
@@ -18,7 +17,6 @@ export class CommentsComponent implements OnInit {
 
   ngOnInit(): void {
     reactionClick();
-    hideImages();
   }
 
   onclick() {

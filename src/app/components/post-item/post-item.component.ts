@@ -3,7 +3,7 @@ import { Post } from 'src/app/Post';
 import { PostService } from 'src/app/services/post.service';
 
 declare const reactionClick: any;
-declare const hideImages: any;
+// declare const hideImages: any;
 
 @Component({
   selector: 'app-post-item',
@@ -21,7 +21,7 @@ export class PostItemComponent implements OnInit {
   ngOnInit(): void {
     this.getData();
     reactionClick();
-    hideImages();
+    // hideImages();
   }
 
   private getData() {
