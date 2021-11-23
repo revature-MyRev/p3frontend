@@ -15,20 +15,24 @@ export class CreatepostComponent implements OnInit {
   tId: number;
   feed: Feed;
 
-  constructor(private pService: PostService) {
+  constructor(private pService: PostService) {}
+
+  @Output() onAddPost: EventEmitter<Post> = new EventEmitter();
+
+  ngOnInit(): void {
     let newfeed = {
       feedId: 0,
     };
     this.createThread(newfeed);
   }
 
-  @Output() onAddPost: EventEmitter<Post> = new EventEmitter();
-
-  ngOnInit(): void {}
-
   onSubmit() {
     if (!this.content && !this.image) {
       alert('Please share some content or an image!');
+    }
+
+    if (!this.tId) {
+      this.ngOnInit();
     }
 
     const newPost = {
@@ -42,9 +46,9 @@ export class CreatepostComponent implements OnInit {
 
     if (this.tId) {
       this.onAddPost.emit(newPost);
-
       this.content = '';
       this.image = '';
+      this.tId = null;
     }
   }
 
