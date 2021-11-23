@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Post } from '../Post';
 import { environment } from 'src/environments/environment';
+import { Feed } from '../Feed';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -40,5 +41,10 @@ export class PostService {
   deletePost(post: Post): Observable<Post> {
     const url = `${baseApiUrl}/posts/${post.postId}`;
     return this.http.delete<Post>(url);
+  }
+
+  createThread(feed: Feed): Observable<Feed> {
+    const url = `${baseApiUrl}/feeds`;
+    return this.http.post<Feed>(url, feed, httpOptions);
   }
 }

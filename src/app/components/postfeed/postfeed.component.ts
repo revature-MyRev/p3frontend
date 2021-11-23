@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Feed } from 'src/app/Feed';
 import { Post } from 'src/app/Post';
 import { PostService } from 'src/app/services/post.service';
 
@@ -10,6 +11,8 @@ import { PostService } from 'src/app/services/post.service';
 export class PostfeedComponent implements OnInit {
   posts: Post[] = [];
   comments: Post[] = [];
+  tId: number;
+  feed: Feed;
 
   constructor(private pService: PostService) {}
 
