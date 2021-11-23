@@ -52,7 +52,12 @@
     @media (max-width: $breakpoint-mobile) {
       text-align: center;
       margin: 0;
-      margin-bottom: 1rem;
+    }
+  }
+
+  & > img {
+    @media (max-width: $breakpoint-mobile) {
+      margin-top: 1rem;
     }
   }
 
