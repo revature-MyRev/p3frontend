@@ -10,14 +10,14 @@
       <img src="{{ comment?.imageUrl }}" class="post__item__card-img" />
 
       <div class="comment__reactions-container">
-        <button class="reaction-btn thumbs__up" ng-click="alert()">
+        <button class="reaction-btn thumbs__up">
           <i class="fas fa-thumbs-up"></i>
         </button>
-        <span>0</span>
-        <button class="reaction-btn thumbs__down">
+        <p class="comment__reaction__likes reaction-count likes">0</p>
+        <button class="reaction-btn thumbs__down reaction-count dislikes">
           <i class="fas fa-thumbs-down"></i>
         </button>
-        <span>0</span>
+        <p class="comment__reaction__dislikes reaction-count dislikes">0</p>
       </div>
     </div>
   </div>

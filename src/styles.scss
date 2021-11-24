@@ -12,7 +12,7 @@
   }
 }
 
-@keyframes reactionAnimation {
+@keyframes reactionAnimation-rightSpin {
   0% {
     transform: scale(1) rotate(0deg);
   }
@@ -23,6 +23,20 @@
 
   100% {
     transform: scale(1) rotate(360deg);
+  }
+}
+
+@keyframes reactionAnimation-leftSpin {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  50% {
+    transform: scale(1.5) rotate(-180deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(-360deg);
   }
 }
 
@@ -41,8 +55,12 @@
   font-size: 1.5rem;
 }
 
-.reaction-click {
-  animation: reactionAnimation 0.3s ease-out;
+.reaction-click-right {
+  animation: reactionAnimation-rightSpin 0.3s ease-out;
+}
+
+.reaction-click-left {
+  animation: reactionAnimation-leftSpin 0.3s ease-out;
 }
 
 .reaction-btn > i {
@@ -61,4 +79,16 @@ img[src=""] {
 .user-img {
   border-radius: 50%;
   border: 3px solid $blue;
+}
+
+.reaction-count {
+  font-family: "FuturaHeavy" !important;
+}
+
+.likes {
+  color: green !important;
+}
+
+.dislikes {
+  color: red !important;
 }
