@@ -1,5 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Dislikes } from 'src/app/dislikes';
+import { Likes } from 'src/app/likes';
 import { Post } from 'src/app/Post';
+import { LikeDislikeService } from 'src/app/services/like-dislike.service';
 import { PostService } from 'src/app/services/post.service';
 
 declare const reactionClick: any;
@@ -15,8 +18,13 @@ export class PostItemComponent implements OnInit {
   numComments: number;
 
   @Input() post: Post;
+  // @Output() onLikeClick: EventEmitter<Likes> = new EventEmitter();
+  // @Output() onDislikeClick: EventEmitter<Dislikes> = new EventEmitter();
 
-  constructor(private pService: PostService) {}
+  constructor(
+    private pService: PostService,
+    private lService: LikeDislikeService
+  ) {}
   toggle: boolean = true;
 
   toggleClass() {
@@ -35,6 +43,20 @@ export class PostItemComponent implements OnInit {
       this.filterPosts(posts);
       this.numComments = this.getNumOfComments();
     });
+  }
+
+  onLike() {
+    //add conditional statement too see if the user has already liked this post
+    //if they have ->remove like
+    //if not -> add like
+    this.lService.addLike();
+  }
+
+  onDislike() {
+    //add conditional statement too see if the user has already disliked this post
+    //if they have ->remove dislike
+    //if not -> add dislike
+    this.lService.addDislike();
   }
 
   private filterPosts(posts: Post[]) {
@@ -74,13 +96,5 @@ export class PostItemComponent implements OnInit {
       p.feedId === this.post.feedId;
     });
     return this.comments;
-  }
-
-  toggleComments() {
-    let commentSection = document.querySelector('.comment__section-container');
-
-    if (commentSection.classList.contains('hide')) {
-      commentSection.classList.toggle('hide');
-    }
   }
 }

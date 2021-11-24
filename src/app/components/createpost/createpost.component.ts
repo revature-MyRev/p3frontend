@@ -28,29 +28,29 @@ export class CreatepostComponent implements OnInit {
   createPost() {
     if (!this.content && !this.image) {
       alert('Please share some content or an image!');
-    } else {
-      if (this.tId == 0) {
-        let newfeed = {
-          feedId: 0,
+      return;
+    }
+    if (this.tId == 0) {
+      let newfeed = {
+        feedId: 0,
+      };
+
+      this.pService.createThread(newfeed).subscribe((t) => {
+        this.tId = +t;
+        const newPost = {
+          postContent: this.content,
+          postDate: new Date(),
+          userId: 1,
+          feedId: this.tId,
+          imageUrl: this.image,
+          type: 'post',
         };
 
-        this.pService.createThread(newfeed).subscribe((t) => {
-          this.tId = +t;
-          const newPost = {
-            postContent: this.content,
-            postDate: new Date(),
-            userId: 1,
-            feedId: this.tId,
-            imageUrl: this.image,
-            type: 'post',
-          };
-
-          this.onAddPost.emit(newPost);
-          this.content = '';
-          this.image = '';
-          this.tId = 0;
-        });
-      }
+        this.onAddPost.emit(newPost);
+        this.content = '';
+        this.image = '';
+        this.tId = 0;
+      });
     }
   }
 }

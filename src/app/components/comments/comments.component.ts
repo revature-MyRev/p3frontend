@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Post } from 'src/app/Post';
+import { LikeDislikeService } from 'src/app/services/like-dislike.service';
 
 declare const reactionClick: any;
 
@@ -12,7 +13,7 @@ export class CommentsComponent implements OnInit {
   @Input() comment: Post;
   @Input() post: Post;
 
-  constructor() {}
+  constructor(private lService: LikeDislikeService) {}
 
   ngOnInit(): void {
     reactionClick();
@@ -20,5 +21,19 @@ export class CommentsComponent implements OnInit {
 
   onclick() {
     alert();
+  }
+
+  onLike() {
+    //add conditional statement too see if the user has already liked this post
+    //if they have ->remove like
+    //if not -> add like
+    this.lService.addLike();
+  }
+
+  onDislike() {
+    //add conditional statement too see if the user has already disliked this post
+    //if they have ->remove dislike
+    //if not -> add dislike
+    this.lService.addDislike();
   }
 }
