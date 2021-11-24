@@ -44,26 +44,13 @@ export class CreatepostComponent implements OnInit {
           feedId: this.tId,
           imageUrl: this.image,
           type: 'post',
+        };
 
-    } 
-
-        this.pService.createThread(newfeed).subscribe((t) => {
-          this.tId = +t;
-          const newPost = {
-            postContent: this.content,
-            postDate: new Date(),
-            userId: 1,
-            feedId: this.tId,
-            imageUrl: this.image,
-            type: 'post',
-          };
-
-          this.onAddPost.emit(newPost);
-          this.content = '';
-          this.image = '';
-          this.tId = 0;
-        });
-      }
+        this.onAddPost.emit(newPost);
+        this.content = '';
+        this.image = '';
+        this.tId = 0;
+      });
     }
   }
 }
