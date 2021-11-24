@@ -26,6 +26,7 @@ export class PostItemComponent implements OnInit {
     this.pService.getPosts().subscribe((posts) => {
       this.posts = posts;
       this.posts.reverse();
+      //this.comments.reverse();
       this.filterPosts(posts);
     });
   }
@@ -34,9 +35,11 @@ export class PostItemComponent implements OnInit {
     this.posts = posts.filter((p) => {
       return p.type == 'post';
     });
-    this.comments = posts.filter((p) => {
-      return p.type != 'post';
-    });
+    this.comments = posts
+      .filter((p) => {
+        return p.type != 'post';
+      })
+      .reverse();
   }
 
   addComment(comment: Post) {
