@@ -10,10 +10,17 @@
           [(ngModel)]="content"
           placeholder="What would you like to share today?"
           id="content"
+          maxlength="255"
         ></textarea>
 
         <label for="imageUrl">Image URL</label>
-        <input type="text" name="imageUrl" [(ngModel)]="image" class="mb-2" />
+        <input
+          type="text"
+          name="imageUrl"
+          [(ngModel)]="image"
+          class="mb-2"
+          maxlength="255"
+        />
 
         <button type="button" (click)="createPost()">Post</button>
       </form>

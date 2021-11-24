@@ -24,6 +24,7 @@ export class CreatepostComponent implements OnInit {
   createPost() {
     if (!this.content && !this.image) {
       alert('Please share some content or an image!');
+      return;
     }
     if (this.tId == 0) {
       let newfeed = {
