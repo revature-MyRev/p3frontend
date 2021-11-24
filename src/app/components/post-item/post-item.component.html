@@ -15,11 +15,17 @@
     </div>
 
     <div class="post__item__card__reaction-container">
-      <button class="post__item__card__reaction-btn reaction-btn thumbs__up">
+      <button
+        class="post__item__card__reaction-btn reaction-btn thumbs__up"
+        (click)="onLike()"
+      >
         <i class="fas fa-thumbs-up"></i>
       </button>
       <p class="post__item__card__reaction__likes reaction-count likes">0</p>
-      <button class="post__item__card__reaction-btn reaction-btn thumbs__down">
+      <button
+        class="post__item__card__reaction-btn reaction-btn thumbs__down"
+        (click)="onDislike()"
+      >
         <i class="fas fa-thumbs-down"></i>
       </button>
       <p class="post__item__card__reaction__dislikes reaction-count dislikes">
