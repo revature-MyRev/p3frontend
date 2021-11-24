@@ -20,12 +20,12 @@ export class CreateCommentComponent implements OnInit {
       alert('Please add a comment or a pic');
       return;
     }
-    console.log(this.content, this.image);
+
     const newComment = {
       postContent: this.content,
       postDate: new Date(),
-      threadId: 2,
-      userId: 1,
+      feedId: 4,
+      usersId: 1,
       imageUrl: this.image,
       type: 'comment',
     };

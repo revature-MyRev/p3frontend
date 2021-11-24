@@ -2,8 +2,7 @@ export interface Post {
   postId?: number;
   postContent: string;
   postDate: Date;
-  threadId?: number;
-  userId: number;
+  feedId?: number;
   imageUrl: string;
   usersId?: number;
   type: string;

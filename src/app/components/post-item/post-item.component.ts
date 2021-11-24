@@ -39,21 +39,20 @@ export class PostItemComponent implements OnInit {
     });
   }
 
-  addComment(post: Post) {
-    let type = post.type;
-    this.pService.addPost(post).subscribe((post) => {
-      console.log(post);
-      type === 'post' ? this.posts.push(post) : this.comments.push(post);
+  addComment(comment: Post) {
+    let type = comment.type;
+    let fId = this.post.feedId;
+    comment.feedId = fId;
+
+    this.pService.addPost(comment).subscribe((p) => {
+      type === 'post' ? this.posts.push(comment) : this.comments.push(comment);
       this.ngOnInit();
     });
   }
 
   filterByThread() {
     this.comments = this.comments.filter((p) => {
-      p.threadId === this.post.threadId;
-      console.log(`Post thread Id: ${this.post.threadId}`);
-      console.log(`Comment thread Id: ${p.threadId}`);
-      console.log(this.comments);
+      p.feedId === this.post.feedId;
     });
     return this.comments;
   }
