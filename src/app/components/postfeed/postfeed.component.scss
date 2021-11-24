@@ -48,7 +48,10 @@
 .post__feed-main {
   grid-column: span 1;
   padding: 2rem 3rem;
-  max-width: 100%;
+
+  @media (min-width: $breakpoint-desktop) {
+    max-width: 80%;
+  }
 
   @media (max-width: $breakpoint-mobile) {
     padding: 2rem;

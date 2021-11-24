@@ -8,21 +8,21 @@
   font-size: 16px;
 
   @media (max-width: $breakpoint-mobile) {
-    font-size: 14px;
+    font-size: 12px;
   }
 }
 
 @keyframes reactionAnimation {
   0% {
-    transform: scale(1);
+    transform: scale(1) rotate(0deg);
   }
 
   50% {
-    transform: scale(1.5) rotate(45deg);
+    transform: scale(1.5) rotate(180deg);
   }
 
   100% {
-    transform: scale(1) rotate(0);
+    transform: scale(1) rotate(360deg);
   }
 }
 

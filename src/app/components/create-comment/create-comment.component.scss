@@ -9,7 +9,7 @@
   padding: 1rem;
   border-bottom: 1px solid $blue;
 
-  @media (max-width: $breakpoint-mobile) {
+  @media (max-width: $breakpoint-tablet) {
     display: grid;
     grid-template-areas:
       "pfp input1"
@@ -31,7 +31,7 @@
 .create__comment-user-img {
   height: 2rem;
 
-  @media (max-width: $breakpoint-mobile) {
+  @media (max-width: $breakpoint-tablet) {
     grid-area: pfp;
     height: 4rem;
   }
@@ -50,13 +50,13 @@
   }
 
   &:first-child {
-    @media (max-width: $breakpoint-mobile) {
+    @media (max-width: $breakpoint-tablet) {
       grid-area: input1;
     }
   }
 
   &:last-child {
-    @media (max-width: $breakpoint-mobile) {
+    @media (max-width: $breakpoint-tablet) {
       grid-area: input2;
     }
   }
