@@ -12,6 +12,7 @@ declare const reactionClick: any;
 export class PostItemComponent implements OnInit {
   posts: Post[] = [];
   comments: Post[] = [];
+  numComments: number;
 
   @Input() post: Post;
 
@@ -26,8 +27,8 @@ export class PostItemComponent implements OnInit {
     this.pService.getPosts().subscribe((posts) => {
       this.posts = posts;
       this.posts.reverse();
-      //this.comments.reverse();
       this.filterPosts(posts);
+      this.numComments = this.getNumOfComments();
     });
   }
 
@@ -40,6 +41,16 @@ export class PostItemComponent implements OnInit {
         return p.type != 'post';
       })
       .reverse();
+  }
+
+  private getNumOfComments() {
+    let numOfComments = 0;
+    this.comments.forEach((c) => {
+      if (this.post.feedId === c.feedId) {
+        numOfComments++;
+      }
+    });
+    return numOfComments;
   }
 
   addComment(comment: Post) {
