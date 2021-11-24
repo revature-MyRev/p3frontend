@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { PostService } from 'src/app/services/post.service';
 import { Feed } from 'src/app/Feed';
 
+declare const modal: any;
+
 @Component({
   selector: 'app-createpost',
   templateUrl: './createpost.component.html',
@@ -19,7 +21,9 @@ export class CreatepostComponent implements OnInit {
 
   @Output() onAddPost: EventEmitter<Post> = new EventEmitter();
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    modal();
+  }
 
   createPost() {
     if (!this.content && !this.image) {
@@ -40,13 +44,26 @@ export class CreatepostComponent implements OnInit {
           feedId: this.tId,
           imageUrl: this.image,
           type: 'post',
-        };
 
-        this.onAddPost.emit(newPost);
-        this.content = '';
-        this.image = '';
-        this.tId = 0;
-      });
+    } 
+
+        this.pService.createThread(newfeed).subscribe((t) => {
+          this.tId = +t;
+          const newPost = {
+            postContent: this.content,
+            postDate: new Date(),
+            userId: 1,
+            feedId: this.tId,
+            imageUrl: this.image,
+            type: 'post',
+          };
+
+          this.onAddPost.emit(newPost);
+          this.content = '';
+          this.image = '';
+          this.tId = 0;
+        });
+      }
     }
   }
 }

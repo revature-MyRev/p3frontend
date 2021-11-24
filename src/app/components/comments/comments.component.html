@@ -1,13 +1,17 @@
 <div class="comments-container">
   <div class="comment__card">
-    <img
-      class="comment__user-img user-img"
-      src="assets/Img/Users/user-solid-blue.png"
-      alt=""
-    />
+    <div class="comment__card__user">
+      <img
+        class="comment__card__user-img user-img"
+        src="assets/Img/Users/user-solid-blue.png"
+        alt=""
+      />
+    </div>
+
     <div class="comment-container">
-      <p>{{ comment?.postContent }}</p>
-      <img src="{{ comment?.imageUrl }}" class="post__item__card-img" />
+      <a href="#" class="comment__container__user-name">User</a>
+      <p class="comment-para">{{ comment?.postContent }}</p>
+      <img src="{{ comment?.imageUrl }}" class="comment-img" />
 
       <div class="comment__reactions-container">
         <button class="reaction-btn thumbs__up">
