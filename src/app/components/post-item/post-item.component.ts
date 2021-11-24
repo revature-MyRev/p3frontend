@@ -17,6 +17,11 @@ export class PostItemComponent implements OnInit {
   @Input() post: Post;
 
   constructor(private pService: PostService) {}
+  toggle: boolean = true;
+
+  toggleClass() {
+    this.toggle = !this.toggle;
+  }
 
   ngOnInit(): void {
     this.getData();
@@ -71,7 +76,11 @@ export class PostItemComponent implements OnInit {
     return this.comments;
   }
 
-  // onClick() {
-  //   console.log(this);
-  // }
+  toggleComments() {
+    let commentSection = document.querySelector('.comment__section-container');
+
+    if (commentSection.classList.contains('hide')) {
+      commentSection.classList.toggle('hide');
+    }
+  }
 }

@@ -10,7 +10,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 3rem;
+  padding: 1rem 2rem;
 
   @media (max-width: $breakpoint-mobile) {
     padding: 1rem;
@@ -57,5 +57,23 @@
     &:hover {
       background-color: $light-gray;
     }
+  }
+}
+
+.hamburger-container {
+  height: 2rem;
+  width: 2rem;
+  padding: 0.325rem;
+  border: 1px solid $white;
+  border-radius: 0.325rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+
+  & > div {
+    width: 100%;
+    height: 0.4rem;
+    background-color: $white;
   }
 }

@@ -76,6 +76,15 @@
   }
 }
 
-.post__item__card__reaction__comments {
+.post__item__card__reaction__comments-count {
   margin-left: auto;
+  margin-right: 0.5rem;
+}
+
+.post__item__card__reaction__comments {
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

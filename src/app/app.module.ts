@@ -15,6 +15,7 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { FollowingComponent } from './components/following/following.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CreateCommentComponent } from './components/create-comment/create-comment.component';
+import { SidePanelComponent } from './components/side-panel/side-panel.component';
 
 const appRoutes: Routes = [
   { path: '', component: PostfeedComponent },
@@ -36,6 +37,7 @@ const appRoutes: Routes = [
     ProfileComponent,
     HeaderComponent,
     CreateCommentComponent,
+    SidePanelComponent,
   ],
   imports: [
     BrowserModule,
