@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Dislikes } from 'src/app/dislikes';
-import { Likes } from 'src/app/likes';
+import { Dislikes } from 'src/app/Dislikes';
+import { Likes } from 'src/app/Likes';
 import { Post } from 'src/app/Post';
 import { LikeDislikeService } from 'src/app/services/like-dislike.service';
 

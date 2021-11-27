@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-// import { Dislikes } from 'src/app/dislikes';
-// import { Likes } from 'src/app/likes';
+import { Dislikes } from 'src/app/Dislikes';
+import { Likes } from 'src/app/Likes';
 import { Post } from 'src/app/Post';
 import { LikeDislikeService } from 'src/app/services/like-dislike.service';
 import { PostService } from 'src/app/services/post.service';
@@ -20,8 +20,8 @@ export class PostItemComponent implements OnInit {
   dislikes: Dislikes[] = [];
 
   @Input() post: Post;
-  // @Output() onLikeClick: EventEmitter<Likes> = new EventEmitter();
-  // @Output() onDislikeClick: EventEmitter<Dislikes> = new EventEmitter();
+  @Output() onLikeClick: EventEmitter<Likes> = new EventEmitter();
+  @Output() onDislikeClick: EventEmitter<Dislikes> = new EventEmitter();
 
   constructor(
     private pService: PostService,

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Dislikes } from '../dislikes';
+import { Dislikes } from '../Dislikes';
 import { environment } from 'src/environments/environment';
-import { Likes } from '../likes';
+import { Likes } from '../Likes';
 
 const httpOptions = {
   headers: new HttpHeaders({
