@@ -31,20 +31,28 @@
       <p class="post__item__card__reaction__dislikes reaction-count dislikes">
         0
       </p>
-      <p class="post__item__card__reaction__comments">
-        Comments: {{ numComments }}
+      <p class="post__item__card__reaction__comments-count">
+        {{ numComments }}
+      </p>
+      <p
+        (click)="toggleClass()"
+        class="post__item__card__reaction__comments comments-btn"
+      >
+        Comments
       </p>
     </div>
 
-    <app-create-comment
-      (onAddComment)="addComment($event)"
-    ></app-create-comment>
-    <div *ngFor="let comment of comments">
-      <app-comments
-        [comment]="comment"
-        [post]="post"
-        *ngIf="comment.feedId === post.feedId"
-      ></app-comments>
+    <div [ngClass]="{ hide: toggle }" class="comment__section-container">
+      <app-create-comment
+        (onAddComment)="addComment($event)"
+      ></app-create-comment>
+      <div *ngFor="let comment of comments">
+        <app-comments
+          [comment]="comment"
+          [post]="post"
+          *ngIf="comment.feedId === post.feedId"
+        ></app-comments>
+      </div>
     </div>
   </div>
 </div>

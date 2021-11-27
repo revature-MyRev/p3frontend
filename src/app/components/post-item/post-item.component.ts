@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { Dislikes } from 'src/app/dislikes';
-import { Likes } from 'src/app/likes';
+// import { Dislikes } from 'src/app/dislikes';
+// import { Likes } from 'src/app/likes';
 import { Post } from 'src/app/Post';
 import { LikeDislikeService } from 'src/app/services/like-dislike.service';
 import { PostService } from 'src/app/services/post.service';
@@ -27,6 +27,11 @@ export class PostItemComponent implements OnInit {
     private pService: PostService,
     private lService: LikeDislikeService
   ) {}
+  toggle: boolean = true;
+
+  toggleClass() {
+    this.toggle = !this.toggle;
+  }
 
   ngOnInit(): void {
     this.getData();
@@ -102,8 +107,4 @@ export class PostItemComponent implements OnInit {
     });
     return this.comments;
   }
-
-  // onClick() {
-  //   console.log(this);
-  // }
 }
