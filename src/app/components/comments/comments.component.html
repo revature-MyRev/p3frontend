@@ -1,19 +1,31 @@
-<div class="container mb-2">
-  <div class="card shadow card-width">
-    <div class="d-flex align-items-center">
+<div class="comments-container">
+  <div class="comment__card">
+    <div class="comment__card__user">
       <img
-        class="img-sm m-2 rounded shadow"
-        src="https://buildyourspechere.com/wp-content/uploads/2020/10/placeholder-image-person-jpg.jpg"
+        class="comment__card__user-img user-img"
+        src="assets/Img/Users/user-solid-blue.png"
         alt=""
       />
-      <div class="container">
-        <p>{{ comment }}</p>
-      </div>
     </div>
-    <hr />
-    <div class="d-flex ms-auto">
-      <button class="btn btn-sm">👍</button>
-      <button class="btn btn-sm">👎</button>
+
+    <div class="comment-container">
+      <a href="#" class="comment__container__user-name">User</a>
+      <p class="comment-para">{{ comment?.postContent }}</p>
+      <img src="{{ comment?.imageUrl }}" class="comment-img" />
+
+      <div class="comment__reactions-container">
+        <button class="reaction-btn thumbs__up" (click)="onLike()">
+          <i class="fas fa-thumbs-up"></i>
+        </button>
+        <p class="comment__reaction__likes reaction-count likes">0</p>
+        <button
+          class="reaction-btn thumbs__down reaction-count dislikes"
+          (click)="onDislike()"
+        >
+          <i class="fas fa-thumbs-down"></i>
+        </button>
+        <p class="comment__reaction__dislikes reaction-count dislikes">0</p>
+      </div>
     </div>
   </div>
 </div>

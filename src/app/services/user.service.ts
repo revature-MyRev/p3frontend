@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from "rxjs";
+import { catchError, retry } from "rxjs/operators";
+import { IUsers } from '../user';
 
 
 const API_URL = 'http://localhost:8090/api/auth/';
@@ -9,6 +11,13 @@ const API_URL = 'http://localhost:8090/api/auth/';
   providedIn: 'root'
 })
 export class UserService {
+
+  private _getRequest: string = "URL"; 
+  private _postRequest: string = "URL"; 
+  private _putRequest: string = "URL"; 
+  private _deleteRequest: string = "URL"; 
+  users!: IUsers;
+
   constructor(private http: HttpClient) { }
 
   getPublicContent(): Observable<any> {

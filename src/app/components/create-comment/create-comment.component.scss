@@ -1,0 +1,63 @@
+@import "src/colorVariables";
+@import "../../../bootstrap.css";
+@import "src/mediaQueries";
+
+.create__comment-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid $blue;
+
+  @media (max-width: $breakpoint-tablet) {
+    display: grid;
+    grid-template-areas:
+      "pfp input1"
+      "pfp input2";
+    row-gap: 1rem;
+  }
+}
+
+@keyframes focusAnimation {
+  0% {
+    box-shadow: 0px 0px 0px 0px $blue;
+  }
+
+  100% {
+    box-shadow: 0px 0px 3px 3px $blue;
+  }
+}
+
+.create__comment-user-img {
+  height: 2rem;
+
+  @media (max-width: $breakpoint-tablet) {
+    grid-area: pfp;
+    height: 4rem;
+  }
+}
+
+.create__comment-input {
+  border: 1px solid $blue;
+  border-radius: 50px;
+  background-color: $light-gray;
+  padding: 0.5rem 1rem;
+  margin: 0 1rem;
+  flex: 1;
+  &:focus {
+    animation: focusAnimation 0.1s ease-out;
+    animation-fill-mode: forwards;
+  }
+
+  &:first-child {
+    @media (max-width: $breakpoint-tablet) {
+      grid-area: input1;
+    }
+  }
+
+  &:last-child {
+    @media (max-width: $breakpoint-tablet) {
+      grid-area: input2;
+    }
+  }
+}

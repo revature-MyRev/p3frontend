@@ -1,1 +1,110 @@
+@import "src/colorVariables";
+@import "src/mediaQueries";
 
+.modal-wrapper {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background-color: rgba($color: $light-gray, $alpha: 0.7);
+}
+
+.create__post__modal {
+  &__text {
+    font-size: 1.75rem;
+    font-family: "FuturaHeavy";
+    text-align: center;
+    background-color: $orange;
+    color: $white;
+    padding: 1rem 0;
+    border-radius: 1rem;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $light-gray;
+    }
+  }
+}
+
+.create__post-container,
+.create__post-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.create__post-container {
+  box-shadow: $medium-box-shadow;
+  padding: 1rem;
+  background-color: $orange;
+  width: 70%;
+  position: fixed;
+  z-index: 1;
+  top: 25%;
+  left: 50%;
+  // transform: translateY(-50%);
+  transform: translateX(-50%);
+}
+
+.create__post__header-container {
+  display: flex;
+  flex-direction: row;
+}
+.create__post-header {
+  font-size: 2rem;
+  color: $white;
+  font-family: futuraHeavy;
+
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 1.5rem;
+  }
+}
+
+.close__modal {
+  margin-left: auto;
+  cursor: pointer;
+
+  color: $white;
+  font-size: 1.75rem;
+
+  &:hover {
+    color: $light-gray;
+  }
+}
+
+.create__post-form {
+  & > textarea {
+    margin: 1rem 0;
+    height: 5rem;
+    resize: none;
+    padding: 0.5rem;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  & > input {
+    margin-bottom: 1rem;
+  }
+
+  & > label {
+    color: $white;
+    margin-bottom: 1rem;
+  }
+
+  & > button {
+    font-size: 1.75rem;
+    background-color: $dark-grey;
+    color: $white;
+    padding: 0.5rem 0;
+
+    &:hover {
+      background-color: $light-gray;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+      font-size: 1.25rem;
+    }
+  }
+}

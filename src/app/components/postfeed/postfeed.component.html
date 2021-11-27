@@ -1,63 +1,17 @@
 <div class="feed-wrapper">
-  <div class="header-container">
-    <header class="header">
-      <h1 class="header__text">This will be the Header</h1>
-    </header>
-  </div>
+  <app-header></app-header>
   <div class="post__feed-container">
     <div class="post__feed-following">
-      <h2 class="post__feed__following-header">Following</h2>
-      <div class="post__feed__following-users">
-        <div class="post__feed__following-user">
-          <h3><a href="#">User</a></h3>
-          <p>Some user information</p>
-        </div>
-        <div class="post__feed__following-user">
-          <h3><a href="#">User</a></h3>
-          <p>Some user information</p>
-        </div>
-        <div class="post__feed__following-user">
-          <h3><a href="#">User</a></h3>
-          <p>Some user information</p>
-        </div>
-        <div class="post__feed__following-user">
-          <h3><a href="#">User</a></h3>
-          <p>Some user information</p>
-        </div>
-        <div class="post__feed__following-user">
-          <h3><a href="#">User</a></h3>
-          <p>Some user information</p>
-        </div>
-        <div class="post__feed__following-user">
-          <h3><a href="#">User</a></h3>
-          <p>Some user information</p>
-        </div>
-        <div class="post__feed__following-user">
-          <h3><a href="#">User</a></h3>
-          <p>Some user information</p>
-        </div>
-        <div class="post__feed__following-user">
-          <h3><a href="#">User</a></h3>
-          <p>Some user information</p>
-        </div>
-        <div class="post__feed__following-user">
-          <h3><a href="#">User</a></h3>
-          <p>Some user information</p>
-        </div>
-      </div>
+      <app-following></app-following>
     </div>
     <div class="post__feed-main">
-      <app-createpost></app-createpost>
-
+      <!-- <app-createpost (onAddPost)="addPost($event)"></app-createpost> -->
       <section class="post__feed-section">
         <div class="post__feed__content-container">
-          <app-post-item></app-post-item>
-        </div>
-        <div class="post__feed__content-container">
-          <app-post-item></app-post-item>
-        </div>
-        <div class="post__feed__content-container">
-          <app-post-item></app-post-item>
+          <app-post-item
+            *ngFor="let post of posts"
+            [post]="post"
+          ></app-post-item>
         </div>
       </section>
     </div>

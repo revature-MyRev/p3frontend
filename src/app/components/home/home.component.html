@@ -1,22 +1,23 @@
 <div id="app">
     <nav class="navbar navbar-expand navbar-dark bg-dark">
-      <a href="#" class="navbar-brand">MyRev</a>
+      <!-- <a href="#" class="navbar-brand">MyRev</a> -->
       <ul class="navbar-nav mr-auto" routerLinkActive="active">
         <li class="nav-item">
           <!-- <a href="/home" class="nav-link" routerLink="home">Home </a> -->
         </li>
-        <li class="nav-item" *ngIf="showAdminBoard">
+        <!-- <li class="nav-item" *ngIf="showAdminBoard">
           <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
         </li>
         <li class="nav-item" *ngIf="showModeratorBoard">
           <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
-        </li>
-        <li class="nav-item">
+        </li> -->
+        <!-- <li class="nav-item">
           <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
-        </li>
+        </li> -->
       </ul>
   
       <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+        <a href="#" class="navbar-brand">MyRev</a>
         <li class="nav-item">
           <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
         </li>
@@ -27,16 +28,28 @@
   
       <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
         <li class="nav-item">
-          <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+          <button (click)="displayProfile()">{{ username }}</button>
+          <!-- <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a> -->
         </li>
         <li class="nav-item">
           <a href class="nav-link" (click)="logout()">LogOut</a>
         </li>
       </ul>
+      
+      <ul class="navbar-nave ml-auto" *ngIf="showProfile">
+        <li class="nav-item">
+          <button (click)="displayFeed()">Feed</button>
+        </li>
+      </ul>
     </nav>
-  
+    <div *ngIf="showFeed">
+      <app-postfeed></app-postfeed>
+    </div>
+    <div *ngIf="showProfile">
+      <app-profile></app-profile>
+    </div>
     <div class="container">
       <router-outlet></router-outlet>
     </div>
-  </div>
+</div>
 

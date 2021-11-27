@@ -1,21 +1,58 @@
-<div class="container p-3">
-  <div class="card shadow card-width">
-    <div class="d-flex align-items-center">
+<div class="post__item-container">
+  <div class="post__item__card">
+    <div class="post__item__card-header">
       <img
-        class="img-sm m-2 rounded shadow"
-        src="https://buildyourspechere.com/wp-content/uploads/2020/10/placeholder-image-person-jpg.jpg"
+        class="post__user__card-img user-img"
+        src="assets/Img/Users/user-solid-blue.png"
         alt=""
       />
-      <div class="container">
-        <p>Hello Post</p>
+      <a class="post__user__name" href="#">User</a>
+      <p>{{ post?.postDate }}</p>
+    </div>
+    <div class="post__item__card__content-container">
+      <p class="post__item__card-para">{{ post?.postContent }}</p>
+      <img src="{{ post?.imageUrl }}" class="post__item__card-img" />
+    </div>
+
+    <div class="post__item__card__reaction-container">
+      <button
+        class="post__item__card__reaction-btn reaction-btn thumbs__up"
+        (click)="onLike()"
+      >
+        <i class="fas fa-thumbs-up"></i>
+      </button>
+      <p class="post__item__card__reaction__likes reaction-count likes">0</p>
+      <button
+        class="post__item__card__reaction-btn reaction-btn thumbs__down"
+        (click)="onDislike()"
+      >
+        <i class="fas fa-thumbs-down"></i>
+      </button>
+      <p class="post__item__card__reaction__dislikes reaction-count dislikes">
+        0
+      </p>
+      <p class="post__item__card__reaction__comments-count">
+        {{ numComments }}
+      </p>
+      <p
+        (click)="toggleClass()"
+        class="post__item__card__reaction__comments comments-btn"
+      >
+        Comments
+      </p>
+    </div>
+
+    <div [ngClass]="{ hide: toggle }" class="comment__section-container">
+      <app-create-comment
+        (onAddComment)="addComment($event)"
+      ></app-create-comment>
+      <div *ngFor="let comment of comments">
+        <app-comments
+          [comment]="comment"
+          [post]="post"
+          *ngIf="comment.feedId === post.feedId"
+        ></app-comments>
       </div>
     </div>
-    <hr />
-    <div class="d-flex ms-auto">
-      <button class="btn btn-sm">👍</button>
-      <button class="btn btn-sm">👎</button>
-    </div>
-    <hr />
-    <app-comments></app-comments>
   </div>
 </div>
