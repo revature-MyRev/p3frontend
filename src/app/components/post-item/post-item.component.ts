@@ -16,6 +16,8 @@ export class PostItemComponent implements OnInit {
   posts: Post[] = [];
   comments: Post[] = [];
   numComments: number;
+  likes: Likes[] = [];
+  dislikes: Dislikes[] = [];
 
   @Input() post: Post;
   // @Output() onLikeClick: EventEmitter<Likes> = new EventEmitter();
@@ -41,17 +43,25 @@ export class PostItemComponent implements OnInit {
   }
 
   onLike() {
+    let like = {
+      userId: 1,
+      postId: this.post.postId,
+    };
     //add conditional statement too see if the user has already liked this post
     //if they have ->remove like
     //if not -> add like
-    this.lService.addLike();
+    this.lService.addLike(like);
   }
 
   onDislike() {
+    let dislike = {
+      userId: 1,
+      postId: this.post.postId,
+    };
     //add conditional statement too see if the user has already disliked this post
     //if they have ->remove dislike
     //if not -> add dislike
-    this.lService.addDislike();
+    this.lService.addDislike(dislike);
   }
 
   private filterPosts(posts: Post[]) {
