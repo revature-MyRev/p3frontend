@@ -12,7 +12,17 @@
       <label for="name">First Name</label>
       <input type="text" class="form-control" id="firstName" required [(ngModel)]="user.firstName" name="firstName">
     </div>
-
+  
+     <div class="form-group">
+      <label for="name">Middle Name</label>
+      <input type="text" class="form-control" id="middleName" required [(ngModel)]="user.middleName" name="middleName">
+    </div>
+   
+    <div class="form-group">
+      <label for="name">Last Name</label>
+      <input type="text" class="form-control" id="lastName" required [(ngModel)]="user.lastName" name="lastName">
+    </div>
+  
     <div class="form-group">
       <label for="name">Age</label>
       <input type="number" class="form-control" id="age" required [(ngModel)]="user.age" name="age">
@@ -28,15 +38,7 @@
       <input type="email" class="form-control" id="email" required [(ngModel)]="user.email" name="email">
     </div>
 
-    <div class="form-group">
-      <label for="name">Last Name</label>
-      <input type="text" class="form-control" id="lastName" required [(ngModel)]="user.lastName" name="lastName">
-    </div>
-
-    <div class="form-group">
-      <label for="name">Middle Name</label>
-      <input type="text" class="form-control" id="middleName" required [(ngModel)]="user.middleName" name="middleName">
-    </div>
+    
 
     <div class="form-group">
       <label for="name">Job Title</label>
