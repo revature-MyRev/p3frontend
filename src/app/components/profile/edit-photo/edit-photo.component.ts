@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { Users } from 'src/user';
+import { Users } from 'src/app/models/user';
 import { ProfileService } from '../services/profile.service';
 
 @Component({
@@ -13,6 +13,7 @@ export class EditPhotoComponent implements OnInit {
 
   userId!: number;
   user!: Users;
+  selectedFiles!: FileList;
 
   constructor(private profileService: ProfileService, private route: ActivatedRoute,
      private router: Router) { }
@@ -34,4 +35,5 @@ export class EditPhotoComponent implements OnInit {
       this.profileService.updateProfile(this.userId, this.user);
     }
   }
+  
 }

@@ -1,0 +1,33 @@
+
+
+
+<h2>Search for Users</h2>
+<div class="md-form mt-5" style="text-align: center">
+<input class="form-control mr-sm-2" type="text"[(ngModel)]="searchName">
+
+
+
+<!-- <div style="display:none"> -->
+<table class="table table-striped table-dark" >
+<thead>
+
+    
+
+
+    
+
+  
+    
+<tbody>
+    <tr *ngFor = "let user of users | filter:searchName">
+    
+    
+     
+        <button (click) ="Profile(user.userId)" class="btn btn-outline-warning" style="margin-left: 5px"> {{user.userName}} </button>
+        <!-- <td>{{user.userId}}</td> -->
+
+    </tr>
+</tbody>
+
+</table>
+</div>
