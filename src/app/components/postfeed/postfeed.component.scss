@@ -19,7 +19,7 @@
 .post__feed-container {
   display: grid;
   gap: 1rem;
-  grid-template-columns: min-content 1fr;
+  grid-template-columns: min-content 1fr min-content;
   padding: 0rem 0rem;
 
   @media (max-width: $breakpoint-tablet) {
@@ -34,7 +34,7 @@
 
 .post__feed-following {
   grid-column: span 1;
-  border-right: 5px solid $light-gray;
+  // border-right: 5px solid $light-gray;
   padding: 2rem 3rem;
   display: flex;
   flex-direction: column;
@@ -49,9 +49,9 @@
   grid-column: span 1;
   padding: 2rem 3rem;
 
-  @media (min-width: $breakpoint-desktop) {
+  /* @media (min-width: $breakpoint-desktop) {
     max-width: 80%;
-  }
+  } */
 
   @media (max-width: $breakpoint-mobile) {
     padding: 2rem;
@@ -61,6 +61,11 @@
 /* .post__feed-section {
   padding: 2rem 0;
 } */
+
+.post__feed-user {
+  padding: 2rem 3rem;
+  background-color: $blue;
+}
 
 .post__feed__content-header {
   font-size: 1.25rem;
