@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Post } from 'src/app/post';
 import { PostService } from 'src/app/services/post.service';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
   selector: 'app-create-comment',
@@ -11,9 +12,13 @@ export class CreateCommentComponent implements OnInit {
   content!: string;
   image!: string;
   @Output() onAddComment: EventEmitter<Post> = new EventEmitter();
-  constructor(private pService: PostService) {}
+  currentUser: any;
 
-  ngOnInit(): void {}
+  constructor(private pService: PostService, private tokenService: TokenStorageService) {}
+
+  ngOnInit(): void {
+    this.currentUser = this.tokenService.getUser();
+  }
 
   onSubmit() {
     if (!this.content && !this.image) {

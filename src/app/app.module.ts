@@ -48,8 +48,7 @@ import { SidePanelComponent } from './components/side-panel/side-panel.component
   imports: [BrowserModule,
       HttpClientModule,
       FormsModule,
-      AppRoutingModule,
-      
+      AppRoutingModule     
   ],
  
 

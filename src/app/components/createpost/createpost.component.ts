@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Feed } from 'src/app/feed';
 import { Post } from 'src/app/post';
 import { PostService } from 'src/app/services/post.service';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 declare const modal: any;
 
@@ -16,12 +17,14 @@ export class CreatepostComponent implements OnInit {
   image!: string;
   tId: number = 0;
   feed!: Feed;
+  currentUser: any;
 
-  constructor(private pService: PostService) {}
+  constructor(private pService: PostService, private tokenService: TokenStorageService) {}
 
   @Output() onAddPost: EventEmitter<Post> = new EventEmitter();
 
   ngOnInit(): void {
+    this.currentUser = this.tokenService.getUser();
     modal();
   }
 

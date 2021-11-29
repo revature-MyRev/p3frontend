@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { IUsers } from 'src/app/user';
 
 const TOKEN_KEY = 'auth-token';
 const USER_KEY = 'auth-user';
@@ -43,7 +44,8 @@ export class ProfileService {
   //   return {};
   // }
 
-  updateProfile(id: number, value: any): Observable<Object> {
-    return this.http.put(this.baseUrl+ "editProfile/" + id, value);
+  updateProfile(id: number, user: IUsers): Observable<Object> {
+    console.log('in profile service');
+    return this.http.put(this.baseUrl + "users/users/", {id, user});
   }
 }

@@ -1,9 +1,11 @@
+import { Token } from '@angular/compiler/src/ml_parser/tokens';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Post } from 'src/app/post';
 // import { Dislikes } from 'src/app/dislikes';
 // import { Likes } from 'src/app/likes';
 import { LikeDislikeService } from 'src/app/services/like-dislike.service';
 import { PostService } from 'src/app/services/post.service';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 declare const reactionClick: any;
 
@@ -16,6 +18,7 @@ export class PostItemComponent implements OnInit {
   posts: Post[] = [];
   comments: Post[] = [];
   numComments?: number;
+  currentUser: any;
 
   @Input()
   post!: Post;
@@ -24,7 +27,8 @@ export class PostItemComponent implements OnInit {
 
   constructor(
     private pService: PostService,
-    private lService: LikeDislikeService
+    private lService: LikeDislikeService,
+    private tokenService: TokenStorageService
   ) {}
   toggle: boolean = true;
 
@@ -33,6 +37,7 @@ export class PostItemComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.currentUser = this.tokenService.getUser();
     this.getData();
     reactionClick();
   }

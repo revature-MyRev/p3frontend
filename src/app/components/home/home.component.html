@@ -31,23 +31,34 @@
           <button (click)="displayProfile()">{{ username }}</button>
           <!-- <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a> -->
         </li>
+        <li class="nav-item" *ngIf="!showFeed">
+          <button (click)="displayFeed()">Feed</button>
+        </li>
+        <li class="nav-item" *ngIf="!showEditProfile">
+          <button (click)="displayEditProfile()">Edit Profile</button>
+        </li>
+        <li class="nav-item" *ngIf="!showEditPic">
+          <button (click)="displayEditProfilePic()">Edit Profile Picture</button>
+        </li>
         <li class="nav-item">
           <a href class="nav-link" (click)="logout()">LogOut</a>
         </li>
       </ul>
-      
-      <ul class="navbar-nave ml-auto" *ngIf="showProfile">
-        <li class="nav-item">
-          <button (click)="displayFeed()">Feed</button>
-        </li>
-      </ul>
     </nav>
+    
     <div *ngIf="showFeed">
       <app-postfeed></app-postfeed>
     </div>
     <div *ngIf="showProfile">
       <app-profile></app-profile>
     </div>
+    <div *ngIf="showEditProfile">
+      <app-edit-details></app-edit-details>
+    </div>
+    <div *ngIf="showEditPic">
+      <app-edit-photo></app-edit-photo>
+    </div>
+ 
     <div class="container">
       <router-outlet></router-outlet>
     </div>

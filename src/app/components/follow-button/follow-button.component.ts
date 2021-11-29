@@ -3,6 +3,7 @@ import { Component, Injectable, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IFollower } from 'src/app/follower';
 import { FollowerService } from 'src/app/services/follower.service';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 
 //import { User } the currently logged in user object (currently hard coded as userId)
@@ -18,12 +19,15 @@ export class FollowButtonComponent implements OnInit {
   isVisible: boolean = false //Checks to see if active user's id matches profile id
   isFollowing: boolean = false; //Toggles between '+' and 'Unfollow' depending on current state
   follower: IFollower = {"id": 0, "followerId": this.activeUsersId, "followedId": this.profileId};
+  currentUser: any;
   
   constructor(
-    public service: FollowerService, //Injecting mock service 
+    public service: FollowerService, //Injecting mock service
+    private tokenService: TokenStorageService
   ) { }
   
   ngOnInit() {
+    this.currentUser = this.tokenService.getUser();
      this.checkFollowerStatus(this.activeUsersId, this.profileId); //PUT NOTE HERE
    }
 

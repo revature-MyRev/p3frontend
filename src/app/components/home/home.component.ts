@@ -8,13 +8,8 @@ import { TokenStorageService } from '../../services/token-storage.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  di: any;
-  editProfilePic() {
-    throw new Error('Method not implemented.');
-  }
-  editProfile() {
-    throw new Error('Method not implemented.');
-  }
+  id: any;
+
   private roles: string[] = [];
   isLoggedIn = false;
   showFeed = false;
