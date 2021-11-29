@@ -2,43 +2,44 @@
 @import "src/bootstrap";
 
 
-
+div {
+  background-color:  #B9B9BA;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
 .container {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 70%;
     max-height: auto;
     text-align: center;
-    padding-top: 40px;
+    // background-color: #F26925;
 }
+label {
+    color: $dark-grey;
+    padding-bottom: 1rem;
+    text-align: left;
+    
+  }
 
 .form-group {
-    margin-top: 20px;
+    padding-top: 20px;
 }
 
-  label {
-    color: $dark-grey;
-    margin-bottom: 1rem;
-    text-align: left;
-  }
-
-    button {
+ button {
     font-size: 1rem;
-    background-color: $dark-grey;
-    color: $white;
+    // background-color: #F26925;
+    padding-bottom: 20px;
     padding:0 1rem ;
   }
+
   img {
     display: block;
-  margin-left: auto;
-  margin-right: auto;
+  // margin-left: auto;
+  // margin-right: auto;
+  align-self: center;
   width: 30%;
   padding-top: 25px;
   padding-bottom: 25px;
+  
   }
-
-.login {
- padding: 0, 20px;
-}
-
-    
