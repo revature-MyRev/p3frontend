@@ -1,20 +1,18 @@
 import { Injectable } from '@angular/core';
-import { catchError, Observable, tap } from 'rxjs';
-import { HttpClient, HttpEvent, HttpHeaders, HttpRequest} from '@angular/common/http';
-import { Users } from 'src/app/models/user';
+import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 
 const TOKEN_KEY = 'auth-token';
 const USER_KEY = 'auth-user';
-const API_URL = 'http://localhost:8090/';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
 
-  FOLDER = '';
+  baseUrl = 'http://localhost:9080/'
   
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
   
   // Clears sessions storage
   signOut(): void {
@@ -44,14 +42,8 @@ export class ProfileService {
     // Return nothing if USER_KEY is null
     return {};
   }
-  // Get user by userId
-  public getUserById(id: number): Observable<Users> {
-    return this.http.get<Users>(API_URL + "users/users/" + id);
-  }
 
-  // Update user profile
   updateProfile(id: number, value: any): Observable<Object> {
-    return this.http.put(API_URL + "editProfile/" + id, value);
+    return this.http.put(this.baseUrl+ "editProfile/" +id, value);
   }
-  // Update profile photo
 }
