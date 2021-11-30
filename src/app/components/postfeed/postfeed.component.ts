@@ -6,10 +6,9 @@ import { PostService } from 'src/app/services/post.service';
 @Component({
   selector: 'app-postfeed',
   templateUrl: './postfeed.component.html',
-  styleUrls: ['./postfeed.component.scss']
+  styleUrls: ['./postfeed.component.scss'],
 })
 export class PostfeedComponent implements OnInit {
-<<<<<<< HEAD
   posts: Post[] = [];
   comments: Post[] = [];
   tId: number;
@@ -44,12 +43,4 @@ export class PostfeedComponent implements OnInit {
       this.ngOnInit();
     });
   }
-=======
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
->>>>>>> IanBranch
 }
