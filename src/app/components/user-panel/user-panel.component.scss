@@ -1,36 +1,20 @@
 @import "src/colorVariables";
 
-.user__panel-wrapper {
-  width: 10rem;
-}
-
 .user__panel-header-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 
   & > img {
-    max-height: 3rem;
-    max-width: 3rem;
+    max-height: 2rem;
+    max-width: 2rem;
     border-color: $white;
-  }
-
-  & > h2 {
-    margin-top: 1rem;
-    font-size: 1.5rem;
-    color: $white;
-    font-family: "FuturaHeavy";
-    text-align: center;
-    width: 100%;
   }
 }
 
-.user__panel-info-container {
-  padding: 1rem 0;
-
-  & > ul > li {
-    color: $white;
-    padding: 0.25rem 0;
-    font-size: 1.2rem;
-  }
+.user__panel-header {
+  font-size: 1.5rem;
+  color: $white;
+  font-family: "FuturaHeavy";
+  text-align: center;
 }
