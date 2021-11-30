@@ -36,8 +36,8 @@
 .create__post-container {
   box-shadow: $medium-box-shadow;
   padding: 1rem;
-  background-color: $orange;
-  width: 70%;
+  background-color: $dark-grey;
+  width: 50%;
   position: fixed;
   z-index: 1;
   top: 25%;
@@ -95,12 +95,13 @@
 
   & > button {
     font-size: 1.75rem;
-    background-color: $dark-grey;
+    background-color: $light-gray;
     color: $white;
     padding: 0.5rem 0;
 
     &:hover {
-      background-color: $light-gray;
+      background-color: $white;
+      color: $dark-grey;
     }
 
     @media (max-width: $breakpoint-mobile) {

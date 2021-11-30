@@ -30,7 +30,8 @@
             "styles": ["src/styles.scss"],
             "scripts": [
               "src/assets/JS/reactionClick.js",
-              "src/assets/JS/modal.js"
+              "src/assets/JS/modal.js",
+              "src/assets/JS/sidepanel.js"
             ]
           },
           "configurations": {
