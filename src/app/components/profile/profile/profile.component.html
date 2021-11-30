@@ -1,0 +1,38 @@
+<!-- <div class="container" *ngIf="targetUser; else loggedOut"> -->
+
+<div class="photo">
+        <img [src]="targetUser.photo ? targetUser.photo : 'https://www.w3schools.com/howto/img_avatar.png'" alt="Profile Photo">
+</div>
+<div>
+    <follow_button [profileId]=10 [activeUsersId]=3></follow_button>
+</div>
+<div class="container">
+    <header>
+        <h3>
+            <strong>Name:</strong>
+            {{ targetUser.firstName }} {{targetUser.middleName}} {{targetUser.lastName}}
+        </h3>
+    </header>
+    <div>
+        <p>
+            <strong>Job Title:</strong>
+            {{ targetUser.jobTitle }}
+        </p>
+        <p>
+            <strong>Email:</strong>
+            {{ targetUser.email }}
+        </p>
+        <p>
+            <strong>Age:</strong>
+            {{ targetUser.age }}
+        </p>
+        <p>
+            <strong>Gender:</strong>
+            {{ targetUser.gender }}
+        </p>
+    </div>
+</div>
+  
+<ng-template #loggedOut>
+Please login.
+</ng-template>

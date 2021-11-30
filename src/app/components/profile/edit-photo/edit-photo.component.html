@@ -1,0 +1,9 @@
+<div>
+    <label class="hoverable" for="fileInput">
+        <img [src]="user.photo ? user.photo : 'https://www.w3schools.com/howto/img_avatar.png'"> 
+        <div class="hover-text">Choose file</div>
+        <div class="background"></div>
+      </label>
+      <br/>
+      <input id="fileInput" type='file' (change)="onSelectFile($event)">
+</div>
