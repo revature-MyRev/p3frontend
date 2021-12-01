@@ -3,19 +3,18 @@
 @import "src/mediaQueries";
 
 .create__comment-container {
-  display: flex;
+  /* display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: center; */
   padding: 1rem;
   border-bottom: 1px solid $blue;
 
-  @media (max-width: $breakpoint-tablet) {
-    display: grid;
-    grid-template-areas:
-      "pfp input1"
-      "pfp input2";
-    row-gap: 1rem;
-  }
+  /* @media (max-width: $breakpoint-tablet) { */
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  row-gap: 1rem;
+  align-items: center;
+  /* } */
 }
 
 @keyframes focusAnimation {
@@ -31,10 +30,11 @@
 .create__comment-user-img {
   height: 2rem;
 
-  @media (max-width: $breakpoint-tablet) {
-    grid-area: pfp;
-    height: 4rem;
-  }
+  /* @media (max-width: $breakpoint-tablet) { */
+  grid-column: span 1;
+  grid-row: span 2;
+  height: 4rem;
+  /*  } */
 }
 
 .create__comment-input {
@@ -50,14 +50,16 @@
   }
 
   &:first-child {
-    @media (max-width: $breakpoint-tablet) {
-      grid-area: input1;
-    }
+    /* @media (max-width: $breakpoint-tablet) { */
+    grid-column: span 1;
+    grid-row: span 1;
+    /* } */
   }
 
   &:last-child {
-    @media (max-width: $breakpoint-tablet) {
-      grid-area: input2;
-    }
+    /* @media (max-width: $breakpoint-tablet) { */
+    grid-column: span 1;
+    grid-row: span 1;
+    /* } */
   }
 }
