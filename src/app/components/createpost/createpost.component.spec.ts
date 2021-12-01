@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FollowButtonComponent } from './follow-button.component';
+import { CreatepostComponent } from './createpost.component';
 
-describe('FollowButtonComponent', () => {
-  let component: FollowButtonComponent;
-  let fixture: ComponentFixture<FollowButtonComponent>;
+describe('CreatepostComponent', () => {
+  let component: CreatepostComponent;
+  let fixture: ComponentFixture<CreatepostComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FollowButtonComponent ]
+      declarations: [ CreatepostComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FollowButtonComponent);
+    fixture = TestBed.createComponent(CreatepostComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

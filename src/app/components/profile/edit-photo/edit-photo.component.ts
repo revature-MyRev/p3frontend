@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Users } from 'src/app/models/user';
 import { ProfileService } from '../services/profile.service';
+import { TokenStorageService } from '../../login_reg/services/token-storage.service';
 
 @Component({
   selector: 'app-edit-photo',
@@ -15,11 +16,13 @@ export class EditPhotoComponent implements OnInit {
   user!: Users;
   selectedFiles!: FileList;
 
-  constructor(private profileService: ProfileService, private route: ActivatedRoute,
-     private router: Router) { }
+  constructor(private profileService: ProfileService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private tokenService: TokenStorageService) { }
 
   ngOnInit(): void {
-    this.user = this.profileService.getUser();
+    this.user = this.tokenService.getUser();
     this.userId = this.route.snapshot.params['userId'];
   }
 

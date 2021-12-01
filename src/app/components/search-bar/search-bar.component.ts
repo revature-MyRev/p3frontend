@@ -24,7 +24,7 @@ export class SearchBarComponent implements OnInit {
 
   }
  
-  Profile(userId: number): void{
+  getProfile(userId: number): void{
     this.router.navigate(['profile', userId])
   }
 

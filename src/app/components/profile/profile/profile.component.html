@@ -4,7 +4,13 @@
         <img [src]="targetUser.photo ? targetUser.photo : 'https://www.w3schools.com/howto/img_avatar.png'" alt="Profile Photo">
 </div>
 <div>
-    <follow_button [profileId]=10 [activeUsersId]=3></follow_button>
+    <span *ngIf="isVisible">
+        <button [ngClass]="{'follow' : isFollowing == false,
+            'unfollow' : isFollowing == true }"
+            (click)="onClick()">
+            {{isFollowing == true ? 'Unfollow' : (isFollowing == false ? 'Follow' : '')}}
+        </button>
+    </span>
 </div>
 <div class="container">
     <header>
