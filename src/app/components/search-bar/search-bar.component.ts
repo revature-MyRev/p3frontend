@@ -7,30 +7,31 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html',
-  styleUrls: ['./search-bar.component.scss']
+  styleUrls: ['./search-bar.component.scss'],
 })
 export class SearchBarComponent implements OnInit {
-
   users!: Users[];
-  searchName:string="";
+  searchName: string = '';
   changeText: boolean;
 
-  constructor(private SearchBarService: SearchBarService, private router: Router) { 
+  constructor(
+    private SearchBarService: SearchBarService,
+    private router: Router
+  ) {
     this.changeText = false;
   }
 
   ngOnInit(): void {
     this.getUsers();
-
-  }
- 
-  Profile(userId: number): void{
-    this.router.navigate(['profile', userId])
   }
 
-
-  private getUsers(){
-    this.SearchBarService.getUsersList().subscribe(data=>{this.users=data})
+  Profile(userId: number): void {
+    this.router.navigate(['profile', userId]);
   }
 
+  private getUsers() {
+    this.SearchBarService.getUsersList().subscribe((data) => {
+      this.users = data;
+    });
+  }
 }
