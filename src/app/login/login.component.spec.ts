@@ -8,8 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
-  let de: DebugElement;
-  let el: HTMLElement;
+  // let de: DebugElement;
+  // let el: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -26,8 +26,8 @@ describe('LoginComponent', () => {
     .compileComponents().then(()=>{
       fixture = TestBed.createComponent(LoginComponent);
       component = fixture.componentInstance;
-      de = fixture.debugElement.query(By.css('form'));
-      el = de.nativeElement;
+      // de = fixture.debugElement.query(By.css('form'));
+      // el = de.nativeElement;
     });
     });
 
