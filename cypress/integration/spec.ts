@@ -6,6 +6,9 @@ describe('My First Test', () => {
         // Post Feed home page
         cy.visit('http://localhost:4200/')
 
+        // Select Create Post modal to open Post creation menu
+        cy.get('h3').contains('What').first().click()
+
         // Select text content input box, type into it and verify that the value has been updated
         cy.get('textarea').first().focus()
             .type('Cypress Post NOV 22')
@@ -13,16 +16,20 @@ describe('My First Test', () => {
 
         // Click Post button
         cy.get('button').eq(1).click()
-        .wait(500)
+            .wait(500)
+
+        cy.get('h3').contains('What').first().click()
 
         // Select image url input field, type into it and verify that the value has been updated
         cy.get('input').eq(1).focus()
             .type('https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.whatgrowsthere.com%2Fgrow%2Fwp-content%2Fuploads%2F2011%2F12%2FDSC_0612.jpg&f=1&nofb=1')
             .should('have.value', 'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.whatgrowsthere.com%2Fgrow%2Fwp-content%2Fuploads%2F2011%2F12%2FDSC_0612.jpg&f=1&nofb=1')
-        
-         // Click Post button
+
+        // Click Post button
         cy.get('button').eq(1).click()
-        .wait(500)
+            .wait(500)
+
+        cy.get('h3').contains('What').first().click()
 
         // Create a Post with both text and image inputs
         cy.get('textarea').first().focus()
@@ -35,6 +42,10 @@ describe('My First Test', () => {
 
         cy.get('button').eq(1).click()
             .wait(500)
+
+        // Select Comments button to open Comments creation menu
+        // Assumes the first Post on Feed has zero Comments    
+        cy.get('p').contains('Comments').first().click()
 
         // Select comment text input field on first Post in Feed, type into it and validate changes     
         cy.get('input').eq(2).focus()

@@ -14,17 +14,21 @@
       <img src="{{ comment?.imageUrl }}" class="comment-img" />
 
       <div class="comment__reactions-container">
-        <button class="reaction-btn thumbs__up" (click)="onLike()">
+        <button class="reaction-btn thumbs__up" (click)="onCommentLike()">
           <i class="fas fa-thumbs-up"></i>
         </button>
-        <p class="comment__reaction__likes reaction-count likes">0</p>
+        <p class="comment__reaction__likes reaction-count likes">
+          {{ numCommentLikes }}
+        </p>
         <button
           class="reaction-btn thumbs__down reaction-count dislikes"
-          (click)="onDislike()"
+          (click)="onCommentDislike()"
         >
           <i class="fas fa-thumbs-down"></i>
         </button>
-        <p class="comment__reaction__dislikes reaction-count dislikes">0</p>
+        <p class="comment__reaction__dislikes reaction-count dislikes">
+          {{ numCommentDislikes }}
+        </p>
       </div>
     </div>
   </div>

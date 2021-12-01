@@ -1,5 +1,5 @@
 export interface Dislikes {
   dislikeId?: number;
-  userId: number;
+  usersId: number;
   postId: number;
 }

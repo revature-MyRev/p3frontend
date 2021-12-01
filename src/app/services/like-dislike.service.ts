@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Dislikes } from '../dislikes';
+import { Dislikes } from '../Dislikes';
 import { environment } from 'src/environments/environment';
-import { Likes } from '../likes';
+import { Likes } from '../Likes';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -18,23 +18,33 @@ const baseApiUrl = environment.API_ROOT_URL;
 export class LikeDislikeService {
   constructor(private http: HttpClient) {}
 
-  getLikes() {}
-
-  getDislikes() {}
-
-  addLike() {
-    console.log('Like added');
+  getLikes(): Observable<Likes[]> {
+    const url = `${baseApiUrl}/likes`;
+    return this.http.get<Likes[]>(url);
   }
 
-  removeLike() {
-    console.log('Like removed');
+  getDislikes(): Observable<Dislikes[]> {
+    const url = `${baseApiUrl}/dislikes`;
+    return this.http.get<Dislikes[]>(url);
   }
 
-  addDislike() {
-    console.log('Dislike added');
+  addLike(like: Likes): Observable<Likes> {
+    const url = `${baseApiUrl}/likes`;
+    return this.http.post<Likes>(url, like, httpOptions);
   }
 
-  removeDislike() {
-    console.log('Dislike removed');
+  removeLike(like: Likes): Observable<Likes> {
+    const url = `${baseApiUrl}/likes/${like.likeId}`;
+    return this.http.delete<Likes>(url);
+  }
+
+  addDislike(dislike: Dislikes): Observable<Dislikes> {
+    const url = `${baseApiUrl}/dislikes`;
+    return this.http.post<Likes>(url, dislike, httpOptions);
+  }
+
+  removeDislike(dislike: Dislikes): Observable<Dislikes> {
+    const url = `${baseApiUrl}/dislikes/${dislike.dislikeId}`;
+    return this.http.delete<Dislikes>(url);
   }
 }
