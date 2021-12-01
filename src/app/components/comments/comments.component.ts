@@ -18,8 +18,8 @@ export class CommentsComponent implements OnInit {
   dislikes: Dislikes[] = [];
   commentLikes: Likes[] = [];
   commentDislikes: Dislikes[] = [];
-  numCommentLikes: number;
-  numCommentDislikes: number;
+  numCommentLikes: number = 0;
+  numCommentDislikes: number = 0;
   userId: number = 1;
 
   constructor(private lService: LikeDislikeService) {}
@@ -38,10 +38,13 @@ export class CommentsComponent implements OnInit {
   getData() {
     this.getCommentLikes();
     this.getCommentDislikes();
-    //console.log(this.userLikes);
+    // console.log(this.commentLikes);
+    // console.log(this.commentDislikes);
   }
 
   getCommentLikes() {
+    this.commentLikes = [];
+
     this.lService.getLikes().subscribe((likes) => {
       this.likes = likes;
       let postLikes = 0;
@@ -56,6 +59,7 @@ export class CommentsComponent implements OnInit {
   }
 
   getCommentDislikes() {
+    this.commentDislikes = [];
     this.lService.getDislikes().subscribe((dislikes) => {
       this.dislikes = dislikes;
       let postDisLikes = 0;
@@ -71,6 +75,7 @@ export class CommentsComponent implements OnInit {
 
   onCommentLike() {
     let hasLiked: boolean = false;
+    let hasAlreadyDisliked: boolean = false;
     let like = {
       usersId: this.userId,
       postId: this.comment.postId,
@@ -94,15 +99,11 @@ export class CommentsComponent implements OnInit {
       for (let i = 0; i < this.commentLikes.length; i++) {
         if (this.commentLikes[i].usersId == this.userId) {
           this.lService.removeLike(this.commentLikes[i]).subscribe((like) => {
-            this.commentLikes = this.commentLikes.filter((p) => {
-              this.commentLikes[i] === p;
-            });
+            this.ngOnInit();
           });
-          this.ngOnInit();
           break;
         }
       }
-      this.ngOnInit();
     }
   }
 
@@ -133,15 +134,11 @@ export class CommentsComponent implements OnInit {
           this.lService
             .removeDislike(this.commentDislikes[i])
             .subscribe((like) => {
-              this.commentDislikes = this.commentDislikes.filter((p) => {
-                this.commentDislikes[i] === p;
-              });
+              this.ngOnInit();
             });
-          this.ngOnInit();
           break;
         }
       }
-      this.ngOnInit();
     }
   }
 }

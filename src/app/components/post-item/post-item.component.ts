@@ -110,7 +110,7 @@ export class PostItemComponent implements OnInit {
         if (this.postLikes[i].usersId == this.userId) {
           this.lService.removeLike(this.postLikes[i]).subscribe((like) => {
             this.postLikes = this.postLikes.filter((p) => {
-              this.postLikes[i] === p;
+              p === this.postLikes[i];
             });
           });
           this.ngOnInit();
@@ -149,7 +149,7 @@ export class PostItemComponent implements OnInit {
             .removeDislike(this.postDislikes[i])
             .subscribe((like) => {
               this.postDislikes = this.postDislikes.filter((p) => {
-                this.postDislikes[i] === p;
+                p === this.postDislikes[i];
               });
             });
           this.ngOnInit();
