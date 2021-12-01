@@ -1,5 +1,5 @@
 export interface Likes {
   likeId?: number;
-  userId: number;
+  usersId: number;
   postId: number;
 }

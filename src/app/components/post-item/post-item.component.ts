@@ -16,8 +16,13 @@ export class PostItemComponent implements OnInit {
   posts: Post[] = [];
   comments: Post[] = [];
   numComments: number;
+  numLikes: number;
+  numDislikes: number;
+  userId: number = 1;
   likes: Likes[] = [];
   dislikes: Dislikes[] = [];
+  postLikes: Likes[] = [];
+  postDislikes: Dislikes[] = [];
 
   @Input() post: Post;
   @Output() onLikeClick: EventEmitter<Likes> = new EventEmitter();
@@ -36,6 +41,8 @@ export class PostItemComponent implements OnInit {
   ngOnInit(): void {
     this.getData();
     reactionClick();
+    this.postLikes = [...new Set(this.postLikes)];
+    this.postDislikes = [...new Set(this.postDislikes)];
   }
 
   private getData() {
@@ -44,29 +51,113 @@ export class PostItemComponent implements OnInit {
       this.posts.reverse();
       this.filterPosts(posts);
       this.numComments = this.getNumOfComments();
+      this.getLikes();
+      this.getDislikes();
+    });
+  }
+
+  getLikes() {
+    this.lService.getLikes().subscribe((likes) => {
+      this.likes = likes;
+      let postLikes = 0;
+      this.likes.forEach((l) => {
+        if (this.post.postId == l.postId) {
+          postLikes++;
+          this.postLikes.push(l);
+        }
+      });
+      this.numLikes = postLikes;
+    });
+  }
+
+  getDislikes() {
+    this.lService.getDislikes().subscribe((dislikes) => {
+      this.dislikes = dislikes;
+      let postDisLikes = 0;
+      this.dislikes.forEach((d) => {
+        if (this.post.postId == d.postId) {
+          postDisLikes++;
+          this.postDislikes.push(d);
+        }
+      });
+      this.numDislikes = postDisLikes;
     });
   }
 
   onLike() {
+    let hasLiked: boolean = false;
     let like = {
-      userId: 1,
+      usersId: this.userId,
       postId: this.post.postId,
     };
-    //add conditional statement too see if the user has already liked this post
-    //if they have ->remove like
-    //if not -> add like
-    this.lService.addLike(like);
+
+    if (this.postLikes.length > 0) {
+      for (let i = 0; i < this.postLikes.length; i++) {
+        if (this.postLikes[i].usersId === this.userId) {
+          hasLiked = true;
+        }
+      }
+    }
+
+    if (this.postLikes.length < 1 || !hasLiked) {
+      this.lService.addLike(like).subscribe((like) => {
+        this.ngOnInit();
+      });
+    }
+
+    if (hasLiked) {
+      for (let i = 0; i < this.postLikes.length; i++) {
+        if (this.postLikes[i].usersId == this.userId) {
+          this.lService.removeLike(this.postLikes[i]).subscribe((like) => {
+            this.postLikes = this.postLikes.filter((p) => {
+              this.postLikes[i] === p;
+            });
+          });
+          this.ngOnInit();
+          break;
+        }
+      }
+      this.ngOnInit();
+    }
   }
 
   onDislike() {
+    let hasDisliked: boolean = false;
     let dislike = {
-      userId: 1,
+      usersId: this.userId,
       postId: this.post.postId,
     };
-    //add conditional statement too see if the user has already disliked this post
-    //if they have ->remove dislike
-    //if not -> add dislike
-    this.lService.addDislike(dislike);
+
+    if (this.postDislikes.length > 0) {
+      for (let i = 0; i < this.postDislikes.length; i++) {
+        if (this.postDislikes[i].usersId === this.userId) {
+          hasDisliked = true;
+        }
+      }
+    }
+
+    if (this.postDislikes.length < 1 || !hasDisliked) {
+      this.lService.addDislike(dislike).subscribe((like) => {
+        this.ngOnInit();
+      });
+    }
+
+    if (hasDisliked) {
+      for (let i = 0; i < this.postDislikes.length; i++) {
+        if (this.postDislikes[i].usersId == this.userId) {
+          this.lService
+            .removeDislike(this.postDislikes[i])
+            .subscribe((like) => {
+              this.postDislikes = this.postDislikes.filter((p) => {
+                this.postDislikes[i] === p;
+              });
+            });
+          this.ngOnInit();
+          break;
+        }
+      }
+      this.ngOnInit();
+    }
   }
 
   private filterPosts(posts: Post[]) {
