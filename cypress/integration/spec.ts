@@ -4,7 +4,7 @@ describe('My First Test', () => {
     it('Gets, types and asserts', () => {
 
         // Post Feed home page
-        cy.visit('http://localhost:4200/')
+        cy.visit('http://localhost:4200/').wait(500)
 
         // Select Create Post modal to open Post creation menu
         cy.get('h3').contains('What').first().click()
@@ -72,5 +72,140 @@ describe('My First Test', () => {
             .should('have.value', 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnews.umanitoba.ca%2Fwp-content%2Fuploads%2Fsites%2F1%2Fnggallery%2Ftache-arts-complex-geese%2FGoose-7.jpg&f=1&nofb=1')
             .type('{enter}')
             .wait(500)
+
+
+
+        // Like the first Post in Feed, assume you have not liked previously
+        // Click Like button
+        cy.get('i').eq(3).click()
+            .wait(500)
+            // Check value of Likes counter, should be 1
+            .get('p').eq(11).should('have.text', ' 1 ')
+            .wait(500)
+            // Check value of Disikes counter, should be 0
+            .get('p').eq(12).should('have.text', ' 0 ')
+            .wait(500)
+
+        // Unlike first Post in Feed, assume you have liked previously
+        cy.get('i').eq(3).click()
+            .wait(500)
+            // Check value of Likes counter, should be 0
+            .get('p').eq(11).should('have.text', ' 0 ')
+            .wait(500)
+            // Check value of Disikes counter, should be 0
+            .get('p').eq(12).should('have.text', ' 0 ')
+            .wait(500)
+
+        // Dislike first Post in Feed, assume you have not disliked previously
+        cy.get('i').eq(4).click()
+            .wait(500)
+            // Check value of Likes counter, should be 0
+            .get('p').eq(11).should('have.text', ' 0 ')
+            .wait(500)
+            // Check value of Disikes counter, should be 1
+            .get('p').eq(12).should('have.text', ' 1 ')
+            .wait(500)
+
+        // Undislike first Post in Feed, assume you have not disliked previously
+        cy.get('i').eq(4).click()
+            .wait(500)
+            // Check value of Likes counter, should be 0
+            .get('p').eq(11).should('have.text', ' 0 ')
+            .wait(500)
+            // Check value of Disikes counter, should be 0
+            .get('p').eq(12).should('have.text', ' 0 ')
+            .wait(500)
+
+        // // Like first Post in Feed, assume you have disliked previously
+        // // Dislike Post
+        // cy.get('i').eq(4).click()
+        //     .wait(500)
+        //     // Like Post
+        //     .get('i').eq(3).click()
+        //     // Check value of Likes counter, should be 1
+        //     .get('p').eq(11).should('have.text', ' 1 ')
+        //     .wait(500)
+        //     // Check value of Disikes counter, should be 0
+        //     .get('p').eq(12).should('have.text', ' 0 ')
+        //     .wait(500)
+
+        // // Dislike first Post in Feed, assume you have liked previously
+        // // Like Post
+        // cy.get('i').eq(3).click()
+        //     .wait(500)
+        //     // Dislike Post
+        //     .get('i').eq(4).click()
+        //     // Check value of Likes counter, should be 0
+        //     .get('p').eq(11).should('have.text', ' 0 ')
+        //     .wait(500)
+        //     // Check value of Disikes counter, should be 1
+        //     .get('p').eq(12).should('have.text', ' 1 ')
+        //     .wait(500)
+
+        // Like first Comment on first Post in Feed, assume you have not liked previously
+        cy.get('i').eq(5).click()
+            .wait(500)
+            // Check value of Likes counter, should be 1
+            .get('p').eq(16).should('have.text', ' 1 ')
+            .wait(500)
+            // Check value of Disikes counter, should be 0
+            .get('p').eq(17).should('have.text', ' 0 ')
+            .wait(500)
+
+        // // Unike first Comment on first Post in Feed, assume you have liked previously
+        // cy.get('i').eq(5).click()
+        //     .wait(500)
+        //     // Check value of Likes counter, should be 0
+        //     .get('p').eq(16).should('have.text', ' 0 ')
+        //     .wait(500)
+        //     // Check value of Disikes counter, should be 0
+        //     .get('p').eq(17).should('have.text', ' 0 ')
+        //     .wait(500)
+
+        // // Dislike first Comment on first Post in Feed, assume you have not disliked previously
+        // cy.get('i').eq(6).click()
+        //     .wait(500)
+        //     // Check value of Likes counter, should be 0
+        //     .get('p').eq(16).should('have.text', ' 0 ')
+        //     .wait(500)
+        //     // Check value of Disikes counter, should be 1
+        //     .get('p').eq(17).should('have.text', ' 1 ')
+        //     .wait(500)
+
+        // // Undislike first Comment on first Post in Feed, assume you have disliked previously
+        // cy.get('i').eq(6).click()
+        //     .wait(500)
+        //     // Check value of Likes counter, should be 0
+        //     .get('p').eq(16).should('have.text', ' 0 ')
+        //     .wait(500)
+        //     // Check value of Disikes counter, should be 0
+        //     .get('p').eq(17).should('have.text', ' 0 ')
+        //     .wait(500)
+
+        // // Like first Comment on first Post in Feed, assume you have disliked previously
+        // cy.get('i').eq(6).click()
+        //     .wait(500)
+        // cy.get('i').eq(5).click()
+        //     .wait(500)
+        //     // Check value of Likes counter, should be 1
+        //     .get('p').eq(16).should('have.text', ' 1 ')
+        //     .wait(500)
+        //     // Check value of Disikes counter, should be 0
+        //     .get('p').eq(17).should('have.text', ' 0 ')
+        //     .wait(500)
+
+        // // Dislike first Comment on first Post in Feed, assume you have liked previously
+        // cy.get('i').eq(5).click()
+        //     .wait(500)
+        // cy.get('i').eq(6).click()
+        //     .wait(500)
+        //     // Check value of Likes counter, should be 0
+        //     .get('p').eq(16).should('have.text', ' 0 ')
+        //     .wait(500)
+        //     // Check value of Disikes counter, should be 1
+        //     .get('p').eq(17).should('have.text', ' 1 ')
+        //     .wait(500)
+
+
     })
 })
