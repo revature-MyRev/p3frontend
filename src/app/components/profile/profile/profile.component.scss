@@ -1,0 +1,66 @@
+@import "src/colorVariables";
+
+.profile__page-wrapper {
+  min-height: calc(100vh - 7rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.profile__page__profile-container {
+  display: flex;
+  flex-direction: column;
+  box-shadow: $heavy-box-shadow;
+  padding: 1rem 2rem;
+}
+
+.profile__page__profile__img-comtainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & > img {
+    height: 20rem;
+    width: 20rem;
+    border-radius: 50%;
+    border: 1rem solid $orange;
+    margin-bottom: 1rem;
+  }
+}
+
+.profile__page__header-container {
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  gap: 1rem;
+  align-items: center;
+}
+
+.profile__page__user-name {
+  text-align: center;
+  font-size: 2rem;
+  font-family: "FuturaHeavy";
+}
+
+/* .profile__page__follow__button-container {
+  outline: 1px solid $blue;
+}
+ */
+.follow__button {
+  display: block;
+}
+.profile__page__user__information-container {
+  // outline: 1px solid $blue;
+  grid-column: span 1;
+}
+
+.profile__page__user-name {
+  text-transform: capitalize;
+}
+
+.profile__page__user__bio-container {
+  // box-shadow: $medium-box-shadow;
+  margin-top: 1rem;
+  & > p {
+    font-size: 1.5rem;
+  }
+}

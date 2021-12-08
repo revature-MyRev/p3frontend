@@ -1,0 +1,26 @@
+@import "src/colorVariables";
+
+.follow,
+.unfollow {
+  background-color: rgb(72, 76, 86);
+  color: rgb(242, 105, 38);
+}
+
+.follow__button-span,
+.follow__button-span * {
+  display: block;
+}
+
+.follow__button-span > button {
+  width: 100%;
+  padding: 0.5rem;
+  font-family: "FuturaMedium";
+  font-size: 1.5rem;
+  color: $white;
+  background-color: $orange;
+  border-radius: 0.325rem;
+
+  &:hover {
+    background-color: $light-gray;
+  }
+}

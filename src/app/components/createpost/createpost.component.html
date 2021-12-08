@@ -1,0 +1,42 @@
+<div class="create__post__modal">
+  <h3 class="create__post__modal__text">What do you have to say?</h3>
+</div>
+
+<div class="modal-wrapper hide">
+  <div class="create__post-container">
+    <div class="create__post__header-container">
+      <h2 class="create__post-header">Create post</h2>
+      <span class="close__modal"><i class="far fa-times-circle"></i></span>
+    </div>
+    <div class="create__post__body-container">
+      <div class="create__post__text-container">
+        <form class="create__post-form">
+          <textarea
+            class="create__post__textarea"
+            name="content"
+            [(ngModel)]="content"
+            placeholder="What would you like to share today?"
+            id="content"
+          ></textarea>
+
+          <label for="imageUrl">Image URL</label>
+          <input
+            class="create__post__img"
+            type="text"
+            name="imageUrl"
+            [(ngModel)]="image"
+            class="mb-2"
+          />
+
+          <button
+            class="create__post__button"
+            type="button"
+            (click)="createPost()"
+          >
+            Post
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

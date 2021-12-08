@@ -1,0 +1,37 @@
+<div class="header-container">
+  <header class="header">
+    <!-- <img src="assets/Img/Logo/rev-logo.png" alt="" /> -->
+    <!-- <div *ngIf="isFeedRoute()" class="header__search-container">
+      <form class="header__search__form" action="">
+        <input
+          type="text"
+          placeholder="Search MyRev"
+          [(ngModel)]="searchName"
+          name="userFirst"
+        />
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </form>
+      <div class="user__list">
+        <div class="list" *ngFor="let user of users | filter: searchName">
+          {{ user.userName }}
+        </div>
+      </div>
+    </div> -->
+
+    <h1 class="header__text"><a routerLink="/">MyRev</a></h1>
+
+    <ul *ngIf="!isNotRegister()" class="header__navbar">
+      <li><a href="#" class="navbar__item active__page">Home</a></li>
+    </ul>
+    <app-search-bar *ngIf="isFeedRoute()"></app-search-bar>
+    <div
+      *ngIf="showHamburger()"
+      (click)="sidepanel()"
+      class="hamburger-container"
+    >
+      <div class="hamburger-top"></div>
+      <div class="hamburger-middle"></div>
+      <div class="hamburger-bottom"></div>
+    </div>
+  </header>
+</div>

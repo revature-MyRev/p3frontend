@@ -1,0 +1,22 @@
+<div class="user__profile__page-wrapper">
+  <div class="user__profile__page-card">
+    <header class="user__profile__page-header">
+      <img src="{{ user.photo }}" alt="" />
+      <h1 class="user__profile__page-name">
+        {{ user?.firstName }} {{ user?.lastName }}
+      </h1>
+    </header>
+    <div class="user__profile__page-bio">
+      <p>Username: {{ user?.username }}</p>
+      <p>Age: {{ user?.age }}</p>
+      <p>Job Title: {{ user?.jobTitle }}</p>
+      <p>Gender: {{ user?.gender }}</p>
+      <p>Email: {{ user?.email }}</p>
+    </div>
+
+    <div class="user__profile__page-controls">
+      <button type="button" (click)="edit()">Edit</button>
+      <button type="button" (click)="backToFeed()">Back To Feed</button>
+    </div>
+  </div>
+</div>

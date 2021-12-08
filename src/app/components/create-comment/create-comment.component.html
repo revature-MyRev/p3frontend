@@ -1,0 +1,22 @@
+<div class="create__comment-container">
+  <img
+    class="create__comment-user-img user-img"
+    src="{{ user?.photo }}"
+    alt=""
+  />
+
+  <input
+    class="create__comment-input"
+    type="text"
+    placeholder="Write a comment..."
+    [(ngModel)]="content"
+    (keyup.enter)="onSubmit()"
+  />
+  <input
+    class="create__comment-input"
+    type="text"
+    placeholder="Post a pic..."
+    [(ngModel)]="image"
+    (keyup.enter)="onSubmit()"
+  />
+</div>

@@ -1,0 +1,26 @@
+<div class="header__search-container">
+  <form class="header__search__form" action="">
+    <input
+      class="search__bar"
+      autocomplete="off"
+      type="text"
+      placeholder="Search MyRev"
+      [(ngModel)]="searchName"
+      name="userFirst"
+      (click)="showList()"
+    />
+    <!-- <button type="submit"><i class="fas fa-search"></i></button> -->
+  </form>
+
+  <div class="user__list">
+    <div class="list" *ngFor="let user of users | filter: searchName">
+      <button
+        class="search-query"
+        type="button"
+        (click)="getProfile(user.userId); clearSearch()"
+      >
+        {{ user.username }}
+      </button>
+    </div>
+  </div>
+</div>

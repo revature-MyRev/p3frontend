@@ -1,0 +1,74 @@
+@import "src/colorVariables";
+@import "src/mediaQueries";
+
+.header-container {
+  background-color: $dark-grey;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: 1rem;
+  }
+
+  & > h1 {
+    font-family: futuraHeavy;
+    font-size: 2rem;
+    color: $white;
+
+    @media (max-width: $breakpoint-mobile) {
+      font-size: 1.5rem;
+    }
+  }
+
+  & > img {
+    max-height: 2rem;
+
+    @media (max-width: $breakpoint-mobile) {
+      max-height: 1rem;
+    }
+  }
+}
+
+.header__navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  & > li > a {
+    padding: 0.5rem;
+
+    &:hover {
+      background-color: $light-gray;
+    }
+  }
+}
+
+.hamburger-container {
+  height: 2rem;
+  width: 2rem;
+  padding: 0.325rem;
+  border: 1px solid $white;
+  border-radius: 0.325rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+
+  & > div {
+    width: 100%;
+    height: 0.4rem;
+    background-color: $white;
+  }
+}
+
+.active__page {
+  font-size: 1.25rem;
+  background-color: $orange;
+  color: $white;
+}

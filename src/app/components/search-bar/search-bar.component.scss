@@ -1,0 +1,62 @@
+@import "src/colorVariables";
+
+.header__search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.header__search__form {
+  & > input {
+    padding: 0.5rem;
+    height: 100%;
+  }
+
+  & > button {
+    color: $white;
+    background-color: $orange;
+    border: none;
+    outline: none;
+    margin-left: 1rem;
+    padding: 0.5rem;
+
+    &:hover {
+      background-color: $light-gray;
+    }
+  }
+}
+
+.user__list {
+  //   display: none;
+  position: absolute;
+  top: 40px;
+  width: 100%;
+  background-color: $white;
+  box-shadow: $heavy-box-shadow;
+}
+
+.list {
+  & > button {
+    // display: block;
+    width: 100%;
+    text-align: left;
+  }
+  & > button:hover {
+    background-color: $dark-grey;
+    color: $white;
+  }
+}
+
+/* .search__bar:focus .user__list {
+  display: block;
+} */
+
+.search {
+  background-color: rgb(72, 76, 86);
+  color: rgb(242, 105, 38);
+}
+
+.unfollow {
+  background-color: rgb(72, 76, 86);
+  color: rgb(242, 105, 38);
+}

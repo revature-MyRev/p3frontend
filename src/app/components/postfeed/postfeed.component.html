@@ -1,0 +1,24 @@
+<div class="feed-wrapper">
+  <div class="post__feed-container">
+    <div class="post__feed-following">
+      <app-following></app-following>
+    </div>
+    <div class="post__feed-main">
+      <app-createpost (onAddPost)="addPost($event)"></app-createpost>
+      <section class="post__feed-section">
+        <div class="post__feed__content-container">
+          <app-post-item
+            *ngFor="let post of posts"
+            [post]="post"
+          ></app-post-item>
+        </div>
+      </section>
+    </div>
+    <div class="post__feed-user">
+      <app-user-panel></app-user-panel>
+    </div>
+  </div>
+  <div class="footer-container">
+    <footer class="footer">&copy; This is where the footer will be</footer>
+  </div>
+</div>

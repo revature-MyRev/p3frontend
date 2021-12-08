@@ -1,0 +1,49 @@
+@import "src/colorVariables";
+
+.edit__profile__page-wrapper {
+  min-height: calc(100vh - 8rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.edit__profile__card {
+  box-shadow: $heavy-box-shadow;
+  padding: 1rem;
+}
+
+.edit__profile__header {
+  & > h1 {
+    font-size: 2rem;
+  }
+}
+
+.edit__profile__form-container {
+  margin-top: 1rem;
+}
+
+.edit__profile__form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-size: 1.5rem;
+
+  & > * {
+    padding: 0.5rem 0;
+  }
+
+  & > input {
+    border-bottom: 1px solid $orange;
+  }
+
+  & > button {
+    margin: 1rem 0.75rem;
+    background-color: $orange;
+    color: $white;
+    border-radius: 0.325rem;
+
+    &:hover {
+      background-color: $light-gray;
+    }
+  }
+}

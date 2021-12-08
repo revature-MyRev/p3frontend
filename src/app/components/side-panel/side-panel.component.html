@@ -1,0 +1,32 @@
+<div class="side__panel-outer-wrapper">
+  <div class="side__panel-wrapper">
+    <i class="far fa-times-circle close-side-panel"></i>
+    <div class="side__panel__content-container">
+      <ul>
+        <li>
+          <a
+            class="list__item__link view-profile-btn"
+            [routerLink]="['view-profile', id]"
+            routerLinkActive="router-link-active"
+            (click)="closeSidePanel()"
+            >View Profile</a
+          >
+          <span class="underline"></span>
+        </li>
+        <li>
+          <a
+            class="list__item__link"
+            [routerLink]="['edit-profile']"
+            (click)="closeSidePanel()"
+            >Edit Profile</a
+          >
+          <span class="underline"></span>
+        </li>
+        <li>
+          <a class="list__item__link logoutBTN" (click)="logout()">Log Out</a>
+          <span class="underline"></span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

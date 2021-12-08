@@ -1,0 +1,31 @@
+<div class="comments-container">
+  <div class="comment__card">
+    <div class="comment__card__user">
+      <img class="comment__card__user-img user-img" src="{{ photo }}" alt="" />
+    </div>
+
+    <div class="comment-container">
+      <a href="#" class="comment__container__user-name">{{ fullName }}</a>
+      <p class="comment-para">{{ comment?.postContent }}</p>
+      <img src="{{ comment?.imageUrl }}" class="comment-img" />
+
+      <div class="comment__reactions-container">
+        <button class="reaction-btn thumbs__up" (click)="onCommentLike()">
+          <i class="fas fa-thumbs-up"></i>
+        </button>
+        <p class="comment__reaction__likes reaction-count likes">
+          {{ numCommentLikes }}
+        </p>
+        <button
+          class="reaction-btn thumbs__down reaction-count dislikes"
+          (click)="onCommentDislike()"
+        >
+          <i class="fas fa-thumbs-down"></i>
+        </button>
+        <p class="comment__reaction__dislikes reaction-count dislikes">
+          {{ numCommentDislikes }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

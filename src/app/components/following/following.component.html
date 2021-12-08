@@ -1,0 +1,19 @@
+<h2 class="post__feed__following-header">Following</h2>
+<div class="post__feed__following-users" *ngFor="let follow of following">
+  <div class="post__feed__following-user">
+    <div class="post__feed__following__user-header">
+      <img class="user-img" src="{{ follow.photo }}" alt="" srcset="" />
+      <h3>
+        <a>{{ follow.username }}</a>
+      </h3>
+    </div>
+
+    <div class="post__feed__following__user-bio">
+      <p>
+        Age: {{ follow.age }} <br />
+
+        Job Title: {{ follow.jobTitle }}
+      </p>
+    </div>
+  </div>
+</div>

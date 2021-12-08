@@ -1,0 +1,122 @@
+<div class="register__page-wrapper">
+  <!-- <div class="register__page__header-container">
+    <app-header></app-header>
+  </div> -->
+  <div class="register-container">
+    <div class="register__card" [ngClass]="{ slideUpAnimation: isRegister() }">
+      <div class="register__card-header">
+        <!-- <img
+          id="profile-img"
+          src="assets\Img\Logo\rev-logo.png"
+          class="profile-img-card"
+        /> -->
+        <h2>MyRev</h2>
+      </div>
+      <div class="register__card__form-container">
+        <form
+          class="register__card__form"
+          *ngIf="!isSuccessful"
+          name="form"
+          (ngSubmit)="f.form.valid && onSubmit()"
+          #f="ngForm"
+          novalidate
+        >
+          <div class="register__form__group">
+            <label for="firstName">First Name </label>
+            <input
+              type="text"
+              class="form-control"
+              name="firstName"
+              [(ngModel)]="form.firstName"
+              required
+              minlength="3"
+              maxlength="20"
+              #firstname="ngModel"
+            />
+          </div>
+
+          <div class="register__form__group">
+            <label for="lastName">Last Name </label>
+            <input
+              type="text"
+              class="form-control"
+              name="lastName"
+              [(ngModel)]="form.lastName"
+              required
+              minlength="3"
+              maxlength="20"
+              #lastname="ngModel"
+            />
+          </div>
+          <div class="register__form__group">
+            <label for="username">Username </label>
+            <input
+              type="text"
+              class="form-control"
+              name="username"
+              [(ngModel)]="form.username"
+              required
+              minlength="3"
+              maxlength="20"
+              #username="ngModel"
+            />
+            <div class="register__error" *ngIf="username.errors && f.submitted">
+              <div>Username is required</div>
+              <div>Username must be at least 3 characters</div>
+              <div>Username must be at most 20 characters</div>
+            </div>
+          </div>
+          <div class="register__form__group">
+            <label for="email">Email </label>
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              [(ngModel)]="form.email"
+              required
+              email
+              #email="ngModel"
+            />
+            <div class="register__error" *ngIf="email.errors && f.submitted">
+              <div>Email is required</div>
+              <div>Email must be a valid email address</div>
+            </div>
+          </div>
+          <div class="register__form__group">
+            <label for="password">Password </label>
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              [(ngModel)]="form.password"
+              required
+              minlength="6"
+              #password="ngModel"
+            />
+            <div class="register__error" *ngIf="password.errors && f.submitted">
+              <div>Password is required</div>
+              <div>Password must be at least 6 characters</div>
+            </div>
+          </div>
+          <button id="btn" class="btn btn-primary btn-block">Rev Up!</button>
+
+          <div
+            class="alert alert-warning"
+            *ngIf="f.submitted && isSignUpFailed"
+          >
+            Signup failed!<br />{{ errorMessage }}
+          </div>
+        </form>
+        <div class="register__card__login-container">
+          <a (click)="loginRedirect()" class="login__card__register-link"
+            >Already have an account? Log in here</a
+          >
+        </div>
+      </div>
+
+      <div class="alert alert-success" *ngIf="isSuccessful">
+        Your registration is successful!
+      </div>
+    </div>
+  </div>
+</div>

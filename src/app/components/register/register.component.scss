@@ -1,0 +1,94 @@
+@import "src/colorVariables";
+
+.register__page-wrapper {
+  min-height: calc(100vh - 4rem);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow-y: hidden;
+}
+
+.register-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.register__card {
+  background-color: $white;
+  box-shadow: $heavy-box-shadow;
+  border-radius: 0.325rem;
+}
+
+.register__card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & > h2 {
+    font-family: "FuturaHeavy";
+    font-size: 3rem;
+    padding: 1rem;
+    color: $orange;
+  }
+}
+
+.register__card__form-container {
+  padding: 1rem;
+}
+
+.register__card__form {
+  display: flex;
+  flex-direction: column;
+
+  & > button {
+    grid-column: 2 / 3;
+    color: $white;
+    background-color: $orange;
+    border-radius: 0.325rem;
+    padding: 0.5rem 0;
+    &:hover {
+      background-color: $light-gray;
+    }
+  }
+}
+
+.register__form__group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 1rem 0;
+  align-items: center;
+  & > label {
+    grid-column: span 1;
+  }
+
+  & > input {
+    grid-column: span 2;
+    border-bottom: 1px solid $orange;
+    padding: 0.325rem;
+    padding-bottom: 0;
+  }
+}
+
+.register__error {
+  grid-column: 1 / -1;
+  color: red;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.register__card__login-container {
+  margin-top: 1rem;
+  text-align: center;
+
+  & > a {
+    color: $blue;
+
+    &:hover {
+      color: $dark-grey;
+      cursor: pointer;
+    }
+  }
+}

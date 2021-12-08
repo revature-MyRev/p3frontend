@@ -1,0 +1,114 @@
+@import "./reset.scss";
+@import "./colorVariables";
+@import "./fontFaces";
+@import "./mediaQueries";
+
+* {
+  font-family: "FuturaBook";
+  font-size: 16px;
+
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 12px;
+  }
+}
+
+@keyframes reactionAnimation-rightSpin {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  50% {
+    transform: scale(1.5) rotate(180deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+@keyframes reactionAnimation-leftSpin {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  50% {
+    transform: scale(1.5) rotate(-180deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(-360deg);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(15rem);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+.width-container {
+  position: fixed;
+  left: 25px;
+  top: 25px;
+  background-color: $white;
+  border: 3px solid $blue;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+.width {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.reaction-click-right {
+  animation: reactionAnimation-rightSpin 0.3s ease-out;
+}
+
+.reaction-click-left {
+  animation: reactionAnimation-leftSpin 0.3s ease-out;
+}
+
+.reaction-btn > i {
+  font-size: 1.5rem;
+  color: $orange;
+}
+
+.fa-thumbs-down {
+  transform: scaleX(-1);
+}
+
+img[src=""] {
+  display: none;
+}
+
+.user-img {
+  border-radius: 50%;
+  border: 3px solid $blue;
+}
+
+.reaction-count {
+  font-family: "FuturaHeavy" !important;
+}
+
+.likes {
+  color: green !important;
+}
+
+.dislikes {
+  color: red !important;
+}
+
+.hide {
+  display: none !important;
+}
+
+.slideUpAnimation {
+  animation: slideUp 0.4s ease-out;
+}

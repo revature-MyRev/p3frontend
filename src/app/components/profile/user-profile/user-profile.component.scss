@@ -1,0 +1,60 @@
+@import "src/colorVariables";
+
+.user__profile__page-wrapper {
+  min-height: calc(100vh - 5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user__profile__page-card {
+  margin-top: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: $heavy-box-shadow;
+}
+
+.user__profile__page-header {
+  & > img {
+    height: 20rem;
+    width: 20rem;
+    border-radius: 50%;
+    border: 1rem solid $orange;
+    margin-bottom: 1rem;
+  }
+
+  & > h1 {
+    text-align: center;
+  }
+}
+
+.user__profile__page-name {
+  text-transform: capitalize;
+  font-size: 2rem;
+  font-family: "FuturaHeavy";
+}
+.user__profile__page-bio {
+  margin: 1rem 0rem;
+  font-size: 1.5rem;
+}
+
+.user__profile__page-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 0.75rem;
+  width: 100%;
+
+  & > button {
+    font-size: 1.25rem;
+    background-color: $orange;
+    border-radius: 0.325rem;
+    padding: 0.5rem;
+    color: $white;
+
+    &:hover {
+      background-color: $light-gray;
+    }
+  }
+}
